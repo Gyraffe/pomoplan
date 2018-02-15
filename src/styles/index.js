@@ -7,6 +7,8 @@ const mainTheme = {
     grey: '#C4C4C4',
     red: '#EB5757',
     yellow: '#F2C94C',
+    green: '#219653',
+    blue: '#56CCF2',
 
     fontWeightLight: '100',
     fontWeightThin: '300',

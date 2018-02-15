@@ -23,7 +23,7 @@ class Pomodoro extends React.Component {
                 <Col xs={"12"} lg={"4"} className={"my-2"}>
                     <TodayView/>
                 </Col>
-                <Col xs={"12"} lg={"8"} className={"my-4"}>
+                <Col xs={"12"} lg={"8"} className={"mb-4 my-md-4"}>
                     <PomodoroHistory/>
                 </Col>
             </Row>

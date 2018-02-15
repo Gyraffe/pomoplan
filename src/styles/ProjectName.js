@@ -11,7 +11,8 @@ const Project = props => {
 
 const ProjectName = styled(Project)`
         background-color: ${props => props.project ? props.project.color : props.theme.grey};
-        color: ${props => props.theme.whiteDirty};
+        color: ${props => props.theme.whitePerl};
+        font-weight: ${props => props.theme.fontWeightBold};
         border-radius: ${props => (props.radius && "5px 5px 0 0") || "0"};
         text-align: center;
         transform:
@@ -30,6 +31,7 @@ ProjectName.propTypes = {
         color: PropTypes.string,
         title: PropTypes.string
     }),
+    /*in rem*/
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     radius: PropTypes.bool

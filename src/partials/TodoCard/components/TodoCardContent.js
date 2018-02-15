@@ -19,7 +19,7 @@ const TodoCardContent = props => {
                 </Description>
             </TagsAndText>
             <div className={"p-1"}>
-                <PomoProgressCircle isMouseOverProgress done={5} outOf={5} radius={18} border={3}/>
+                <PomoProgressCircle isMouseOverProgress done={2} outOf={4} radius={18} border={3}/>
             </div>
         </Content>
     )
