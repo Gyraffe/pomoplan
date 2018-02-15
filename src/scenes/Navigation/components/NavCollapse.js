@@ -9,8 +9,8 @@ const NavCollapse = props => {
         <Collapse isOpen={props.isOpen} navbar>
             <Nav className="ml-auto justify-content-center">
                 <NavItem className={"mx-2"}>
-                    <Link to={PATH.TODAY_VIEW}>
-                        today
+                    <Link to={PATH.PLAN_WEEK}>
+                        plan
                     </Link>
                 </NavItem>
                 <NavItem className={"mx-2"}>
@@ -24,8 +24,8 @@ const NavCollapse = props => {
                     </Link>
                 </NavItem>
                 <NavItem className={"mx-2"}>
-                    <Link to={PATH.PLAN_WEEK}>
-                        plan
+                    <Link to={PATH.ACCOUNT}>
+                        account
                     </Link>
                 </NavItem>
             </Nav>

@@ -4,6 +4,7 @@ import StartButton from './StartButton'
 import DoneToday from "./containers/DoneToday"
 import LeftToday from "./containers/LeftToday"
 import TodayView from "../TodayView"
+import PomodoroHistory from "../PomodoroHistory"
 
 class Pomodoro extends React.Component {
 
@@ -19,10 +20,12 @@ class Pomodoro extends React.Component {
                 <Col xs={"12"} md={"6"} lg={"4"} className={""}>
                     <LeftToday/>
                 </Col>
-                <Col xs={"12"} lg={"4"} className={" my-2"}>
+                <Col xs={"12"} lg={"4"} className={"my-2"}>
                     <TodayView/>
                 </Col>
-                <Col xs={"12"} lg={"8"} className={"border"}> Hi</Col>
+                <Col xs={"12"} lg={"8"} className={"my-4"}>
+                    <PomodoroHistory/>
+                </Col>
             </Row>
         )
     }

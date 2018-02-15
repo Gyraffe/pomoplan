@@ -14,7 +14,7 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div>
-                    {[R.STATS, R.START_POMO, R.PLAN_WEEK, R.TODAY_VIEW].map(path =>
+                    {[R.STATS, R.START_POMO, R.PLAN_WEEK, R.ACCOUNT].map(path =>
                         <Route path={path} key={path} component={UserIsAuthenticated(Navigation)}/>
                     )}
                 <MainContainer>

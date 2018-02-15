@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import {clearFix, modularScale, rgba, transparentize} from "polished"
-import {Button} from "reactstrap"
+import {clearFix, modularScale, transparentize} from "polished"
 
 const CardTitle = styled.div`
     color: ${props => props.theme.lightBlue};

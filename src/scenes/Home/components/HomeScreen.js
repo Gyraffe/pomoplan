@@ -12,10 +12,10 @@ const HomeScreen = ({username}) => {
                 <HomeScreenTitle>{"Hello, "}{username}{"!"}</HomeScreenTitle><br/>
                 <HomeScreenQuestion>{"What do you want to do now?"}</HomeScreenQuestion>
             </EntryText>
-            <MenuOption path={PATH.TODAY_VIEW} important>{'view today'}</MenuOption>
+            <MenuOption path={PATH.PLAN_WEEK} important>{'plan week'}</MenuOption>
             <MenuOption path={PATH.START_POMO} expand>{'start pomo'}</MenuOption>
-            <MenuOption path={PATH.PLAN_WEEK} expand>{'plan week'}</MenuOption>
             <MenuOption path={PATH.STATS} expand>{'see stats'}</MenuOption>
+            <MenuOption path={PATH.ACCOUNT} expand>{'account'}</MenuOption>
         </Row>
     )
 }
