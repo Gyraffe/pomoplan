@@ -8,8 +8,17 @@ import {UserIsNotAuthenticated, UserIsAuthenticated} from "./firebase/authCheck"
 import Navigation from "./scenes/Navigation"
 import Pomodoro from "./scenes/Pomodoro/index"
 import styled from "styled-components"
+import calculatePendingActions from "./pendingActions"
+import store from "./store/store"
+
 
 class App extends Component {
+    componentDidMount(){
+        setInterval(() => {
+            let actions = calculatePendingActions(store.getState())
+            actions.forEach(store.dispatch);
+        }, 1000)
+    }
     render() {
         return (
             <BrowserRouter>

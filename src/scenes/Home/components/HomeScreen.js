@@ -5,12 +5,12 @@ import * as PATH from '../../../constants/routes'
 import {EntryText, HomeScreenQuestion, HomeScreenTitle} from "./styles"
 import PropTypes from 'prop-types'
 
-const HomeScreen = ({username}) => {
+const HomeScreen = ({username, date}) => {
     return (
         <Row className={"justify-content-md-center align-items-center"}>
             <EntryText className={"my-md-5"} xs={"12"}>
                 <HomeScreenTitle>{"Hello, "}{username}{"!"}</HomeScreenTitle><br/>
-                <HomeScreenQuestion>{"What do you want to do now?"}</HomeScreenQuestion>
+                <HomeScreenQuestion>{"Today is "+ date + ". What do you want to do now?"}</HomeScreenQuestion>
             </EntryText>
             <MenuOption path={PATH.PLAN_WEEK} important>{'plan week'}</MenuOption>
             <MenuOption path={PATH.START_POMO} expand>{'start pomo'}</MenuOption>
@@ -21,7 +21,8 @@ const HomeScreen = ({username}) => {
 }
 
 HomeScreen.propTypes = {
-    username: PropTypes.string.isRequired
+    username: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired
 }
 
 export default HomeScreen

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import {modularScale} from "polished"
 
 const TagBody = styled.div`
 background-color: ${props=> props.color};

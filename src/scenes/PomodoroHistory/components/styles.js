@@ -87,11 +87,29 @@ max-height: 6rem;
 overflow-y: auto;
 `
 
-const Progress = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+const Progress = styled.div.attrs({
+    className: "progress"
+})`
+background-color: ${props => props.theme.gray};
 height: 20px;
+width: 100%;
+border-radius: ${props => props.theme.pillBorderRadius};
+`
+
+const ProgressBar = styled.div.attrs({
+    className: "progress-bar",
+})`
+background-color: ${props => props.theme.lightBlue};
+width: ${props => (((props.done / props.outOf) * 100))}%;
+`
+const ProgressLabel = styled.div`
+display: flex;
+position: absolute;
+justify-content: center;
+align-items: center;
+color: ${props => props.theme.whitePerl};
+width: 100%;
+font-weight: ${props => props.theme.fontWeightBold};
 `
 
 const Time = styled.div`
@@ -104,6 +122,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+width: 100%;
+padding: 0 0.2rem;
 `
 
 const PomosContainer = styled.div`
@@ -114,6 +134,6 @@ margin-bottom: 0.5rem;
 `
 
 export {
-    History, DayHeader, DayName, PomoCount, TimeCount, PomoCard, PomoCardContent, PomoTitle, Tags, Progress, Time,
-    TimeAndProgress, PomosContainer
+    History, DayHeader, DayName, PomoCount, TimeCount, PomoCard, PomoCardContent, Progress, PomoTitle, Tags, Time,
+    TimeAndProgress, PomosContainer, ProgressBar, ProgressLabel
 }

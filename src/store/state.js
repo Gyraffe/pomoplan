@@ -2,9 +2,11 @@ import { combineReducers } from 'redux'
 import { firebaseReducer } from 'react-redux-firebase'
 import { reducer as formReducer } from 'redux-form'
 import navigationBar from "../scenes/Navigation/reducer"
+import timer from "../scenes/Pomodoro/reducerTimer"
 
 const pomoPlan = combineReducers({
     navigationBar,
+    timer,
     firebase: firebaseReducer,
     form: formReducer,
 })

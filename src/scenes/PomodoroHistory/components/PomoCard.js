@@ -1,10 +1,10 @@
 import React from 'react'
 import ProjectName from "../../../styles/ProjectName"
 import {
-    PomoCard as PomodoroCard, PomoCardContent as Content, PomoTitle, Progress, Tags, Time, TimeAndProgress
+    PomoCard as PomodoroCard, PomoCardContent as Content, PomoTitle, Tags, Time, TimeAndProgress
 } from "./styles"
 import Tag from "../../../partials/Tag"
-import PomoProgressLine from "../../../partials/PomoProgressLine"
+import PomoProgressLine from "./PomoProgressLine"
 import PropTypes from 'prop-types'
 
 const PomoCard = ({project, title, timeStarted, timeEnded, done, outOf}) => {
@@ -15,9 +15,7 @@ const PomoCard = ({project, title, timeStarted, timeEnded, done, outOf}) => {
                 <PomoTitle>{title}</PomoTitle>
                 <TimeAndProgress>
                     <Time>{timeStarted + " - " + timeEnded}</Time>
-                    <Progress>
                         <PomoProgressLine done={done} outOf={outOf}/>
-                    </Progress>
                 </TimeAndProgress>
                 <Tags>
                     <Tag name={'hello'} color={"#219653"}/>

@@ -1,3 +1,5 @@
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
 import React from 'react'
 import {render} from 'react-dom'
 import registerServiceWorker from './registerServiceWorker'
@@ -6,8 +8,6 @@ import App from './App'
 import {ThemeProvider} from "styled-components"
 import mainTheme from "./styles"
 import store from "./store/store"
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 
 render(
