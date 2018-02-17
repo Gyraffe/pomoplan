@@ -42,7 +42,7 @@ const StartPomoButton = styled.button`
     border-radius: ${props => props.theme.pillBorderRadius};
     width: 100%;
     height: 100%;
-    max-height: ${rem('144px')};
+    min-height: ${rem('144px')};
     color: ${props => props.theme.whitePerl};
     cursor: pointer;
     box-shadow: ${props => props.theme.shadow[5]};
@@ -63,6 +63,7 @@ const StartedPomoProgress = styled.div.attrs({
     border: 0;
     width: 100%;
     height: 100%;
+    min-height: ${rem('144px')};
     cursor: pointer;
     background-color: ${props => props.theme.gray};
     border-radius: ${props => props.theme.pillBorderRadius};

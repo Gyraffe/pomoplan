@@ -1,7 +1,7 @@
 import Card from "../../../styles/Card"
 import {modularScale} from 'polished'
 import styled from "styled-components"
-import {rgba} from "polished/lib/index"
+import {rgba} from "polished"
 import {Col} from "reactstrap"
 
 export const MenuOptionCard = Card.extend`
@@ -29,4 +29,13 @@ export const HomeScreenQuestion = styled.span`
     font-size: ${modularScale(3)};
     font-weight: ${props => props.theme.fontWeightThin};
     color: ${props => rgba(props.theme.whitePerl, 0.5)};
+`
+
+export const HomeScreenDate = styled.span`
+    color: ${props => rgba(props.theme.whitePerl, 0.8)};
+    transition-property: color;
+    transition-duration: 1s;
+    &:hover, :focus{
+        color: ${props => rgba(props.theme.orange, 1)};
+    }
 `

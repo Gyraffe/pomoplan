@@ -28,7 +28,7 @@ const store = createStoreWithFirebase(
 
 store.subscribe(()=>{
     saveState({
-        timer: store.getState().timer
+        timer: store.getState().timer,
     })
 })
 
