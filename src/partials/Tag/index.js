@@ -2,16 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {TagBody} from "./styles"
 
-const Tag = ({name, color}) => {
+const Tag = ({tagName, color}) => {
     return (
         <TagBody color={color}>
-            {name}
+            {tagName}
         </TagBody>
     )
 }
 
 Tag.propTypes = {
-    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    tagName: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired
 }
 

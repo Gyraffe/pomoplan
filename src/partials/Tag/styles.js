@@ -12,8 +12,8 @@ align-items: center;
 justify-content: center;
 line-height: 1;
 height: 1.5rem;
-padding: 0.1rem 0.3rem;
-margin: 0.1rem 0.2rem;
+padding: ${props=> props.theme.padding.xs} ${props=> props.theme.padding.s};
+margin: ${props=> props.theme.margin.xs} ${props=> props.theme.margin.s};
 flex: 1 0 auto;  
 word-wrap: break-word;
 `

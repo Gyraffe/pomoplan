@@ -1,25 +1,23 @@
 import React from 'react'
 import PomoCard from "./PomoCard"
 import {PomosContainer} from "./styles"
+import PropTypes from "prop-types"
 
-const DayPomos = () => {
+const DayPomos = (props) => {
+    console.log(props)
     return (
         <PomosContainer>
-            <PomoCard project={{title: "My1Project", color: "#F2994A"}} title={"Pomo is done!"} done={7} outOf={7}
-                      timeStarted={"17:12"} timeEnded={"17:45"} />
-            <PomoCard project={{title: "My1Project", color: "#F2994A"}} title={"Pomo is done!"} done={5} outOf={7}
-                      timeStarted={"17:12"} timeEnded={"17:45"} />
-            <PomoCard project={{title: "My1Project", color: "#F2994A"}} title={"Pomo is done!"} done={5} outOf={7}
-                      timeStarted={"17:12"} timeEnded={"17:45"} />
-            <PomoCard project={{title: "My1Project", color: "#F2994A"}} title={"Pomo is done!"} done={5} outOf={7}
-                      timeStarted={"17:12"} timeEnded={"17:45"} />
-            <PomoCard project={{title: "My1Project", color: "#F2994A"}} title={"Pomo is done!"} done={5} outOf={7}
-                      timeStarted={"17:12"} timeEnded={"17:45"} />
-            <PomoCard project={{title: "My1Project", color: "#F2994A"}} title={"Pomo is done!"} done={5} outOf={7}
-                      timeStarted={"17:12"} timeEnded={"17:45"} />
-
+            {props.history ?
+                props.history.reverse().map(task =>
+                    <PomoCard key={task.id} {...task} />)
+                :
+                ""}
         </PomosContainer>
     )
+}
+
+DayPomos.propTypes = {
+    history: PropTypes.array
 }
 
 export default DayPomos

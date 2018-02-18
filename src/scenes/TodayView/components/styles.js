@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {modularScale, transparentize} from "polished"
 
 export const Info = styled.div`
-    padding: 5rem 0;
+    padding: ${props => props.theme.padding.m} 0;
     text-align: center;
     font-size: ${modularScale(3.5)};
     color: ${props => transparentize(0.5, props.theme.whitePerl)};

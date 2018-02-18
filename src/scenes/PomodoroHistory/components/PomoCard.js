@@ -7,7 +7,7 @@ import Tag from "../../../partials/Tag"
 import PomoProgressLine from "./PomoProgressLine"
 import PropTypes from 'prop-types'
 
-const PomoCard = ({project, title, timeStarted, timeEnded, done, outOf}) => {
+const PomoCard = ({project, title, tags, timeStarted, timeEnded, pomoDone, pomoDuration}) => {
     return (
         <PomodoroCard>
             <ProjectName height={2} width={10} project={project}/>
@@ -15,12 +15,14 @@ const PomoCard = ({project, title, timeStarted, timeEnded, done, outOf}) => {
                 <PomoTitle>{title}</PomoTitle>
                 <TimeAndProgress>
                     <Time>{timeStarted + " - " + timeEnded}</Time>
-                        <PomoProgressLine done={done} outOf={outOf}/>
+                    <PomoProgressLine done={pomoDone} outOf={pomoDuration}/>
                 </TimeAndProgress>
                 <Tags>
-                    <Tag name={'hello'} color={"#219653"}/>
-                    <Tag name={'this'} color={"#EB5757"}/>
-                    <Tag name={'also a tag'} color={"#F2C94C"}/>
+                    {tags ?
+                        tags.map(tag => (
+                            <Tag key={tag.id} {...tag}/>
+                        ))
+                        : ''}
                 </Tags>
             </Content>
         </PomodoroCard>
@@ -32,11 +34,12 @@ PomoCard.propTypes = {
         title: PropTypes.string,
         color: PropTypes.string
     }),
+    tags: PropTypes.array,
     title: PropTypes.string,
     timeStarted: PropTypes.string,
     timeEnded: PropTypes.string,
-    done: PropTypes.number,
-    outOf: PropTypes.number
+    pomoDone: PropTypes.number,
+    pomoDuration: PropTypes.number
 }
 
 export default PomoCard

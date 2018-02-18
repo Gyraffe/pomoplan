@@ -9,13 +9,13 @@ const mainTheme = {
     yellow: '#F2C94C',
     green: '#219653',
     blue: '#56CCF2',
+    lightGreen: '#6FCF97',
 
     fontWeightLight: '100',
     fontWeightThin: '300',
     fontWeightNormal: '500',
     fontWeightBold: '700',
 
-    cardMargin: '1.5rem 0',
     cardHeight: '8rem',
 
     mainFormHeight: '500px',
@@ -28,6 +28,22 @@ const mainTheme = {
     cardBorderRadius: '5px',
     pillBorderRadius: '10px',
 
+    margin: {
+        xs: '0.1rem',
+        s: '0.2rem',
+        m: '0.5rem',
+        xm: '1rem',
+        l: '1.5rem'
+    },
+    padding: {
+        xs: '0.1rem',
+        s: '0.25rem',
+        m: '0.5rem',
+        l: '1rem',
+        xl: '2rem',
+        xxl: '6rem',
+        large: '10rem',
+    },
     shadow: {
         1: '0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)',
         2: '0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)',

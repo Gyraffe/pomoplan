@@ -1,10 +1,10 @@
 import styled from "styled-components"
-import {rgba} from 'polished'
+import {modularScale, rgba} from 'polished'
 import {NavLink} from "react-router-dom"
 
 const Link = styled(NavLink)`
     font-weight: ${props => props.theme.fontWeightNormal};
-    font-size: 1.5em;
+    font-size: ${modularScale(1.5)};
     color: ${props => rgba(props.theme.whiteDirty, 0.8)};
     transition-property: color;
     transition-duration: 0.5s;
@@ -22,7 +22,7 @@ const Link = styled(NavLink)`
 `
 
 const AppTitle = Link.extend`
-    font-size: 2em;
+    font-size: ${modularScale(2)};
     font-weight: ${props => props.theme.fontWeightThin};
 `
 

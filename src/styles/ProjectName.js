@@ -22,12 +22,13 @@ const ProjectName = styled(Project)`
         height: ${props => props.height}rem;
         width: ${props => props.width}rem;
         ${ellipsis('100%')};
-        padding: 0.25rem 0.25rem 0;
+        padding: ${props => props.theme.padding.s} ${props => props.theme.padding.s} 0;
         display: block;
 `
 
 ProjectName.propTypes = {
     project: PropTypes.shape({
+        id: PropTypes.string,
         color: PropTypes.string,
         title: PropTypes.string
     }),

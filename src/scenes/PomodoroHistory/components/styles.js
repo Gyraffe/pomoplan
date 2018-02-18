@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import Card from '../../../styles/Card'
-import {modularScale, rem, transparentize} from "polished"
+import {modularScale, transparentize} from "polished"
 
 const History = Card.extend`
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: ${props => props.theme.margin.xm};
+  overflow-y: auto;
+  max-height: 100%;
 `
 const DayHeader = styled.div`
   display: flex;
@@ -16,12 +18,20 @@ const DayName = styled.div`
 font-size: ${modularScale(2)};
 color: ${props => props.theme.orange};
 font-weight: ${props => props.theme.fontWeightBold};
-padding: 0.5rem 1rem;
+padding: ${props => props.theme.padding.m} ${props => props.theme.padding.l};
+display: flex;
+align-items: center;
+`
+const DateDisplay = styled.span`
+font-size: 0.5em;
+color: ${props => transparentize(0.5,props.theme.grey)};
+padding-left: ${props => props.theme.padding.s};
+
 `
 
 const PomoCount = styled.div`
-margin: 0 ${rem('2px')};
-padding: 0 ${rem('2px')};
+margin: 0 ${props => props.theme.margin.xs};
+padding: 0 ${props => props.theme.padding.xs};
 height: 2rem;
 min-width: 2rem;
 display: flex;
@@ -38,8 +48,8 @@ const TimeCount = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-margin: 0 ${rem('2px')};
-padding: 0 ${rem('2px')};
+margin: 0 ${props => props.theme.margin.xs};
+padding: 0 ${props => props.theme.padding.xs};
 height: 2rem;
 min-width: 2rem;
 border: 4px ${props => transparentize(0.5, props.theme.lightBlue)} solid;
@@ -72,7 +82,7 @@ const PomoCardContent = styled.div`
 const PomoTitle = styled.div`
 color: black;
 font-weight: ${props => props.theme.fontWeightBold};
-padding: 0 0.2rem;
+padding: 0 ${props => props.theme.padding.s};
 max-height: 3rem;
 flex-grow: 1;
 overflow: hidden;
@@ -123,17 +133,17 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 width: 100%;
-padding: 0 0.2rem;
+padding: 0 ${props => props.theme.padding.s};
 `
 
 const PomosContainer = styled.div`
 display: flex;
 align-items: center;
 overflow-x: auto;
-margin-bottom: 0.5rem;
+margin-bottom: ${props => props.theme.margin.m};
 `
 
 export {
     History, DayHeader, DayName, PomoCount, TimeCount, PomoCard, PomoCardContent, Progress, PomoTitle, Tags, Time,
-    TimeAndProgress, PomosContainer, ProgressBar, ProgressLabel
+    TimeAndProgress, PomosContainer, ProgressBar, ProgressLabel, DateDisplay
 }

@@ -6,7 +6,7 @@ const CardTitle = styled.div`
     color: ${props => props.theme.lightBlue};
     font-size: ${modularScale(1.5)};
     font-weight: ${props => props.theme.fontWeightBold};
-    margin-bottom: 0.5rem;
+    margin-bottom: ${props => props.theme.margin.l};
 `
 
 const Position = styled.div`
@@ -15,7 +15,7 @@ const Position = styled.div`
 
 const Statistics = styled.div`
 line-height: ${modularScale(1.3)};
-padding: 0 1.5rem 1rem;
+padding: 0 ${props => props.theme.padding.xl} ${props => props.theme.padding.l};
 `
 
 const SubTitle = styled.div`
@@ -38,7 +38,7 @@ const StartPomoButton = styled.button`
     border: 0;
     font-size: ${modularScale(4)};
     font-weight: ${props => props.theme.fontWeightBold};
-    padding: 1.2rem 0;
+    padding: ${props => props.theme.padding.l} 0;
     border-radius: ${props => props.theme.pillBorderRadius};
     width: 100%;
     height: 100%;

@@ -2,33 +2,35 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import PomoProgressCircle from "../../PomoProgressCircle/index"
 import {Content, TagsAndText, Description, Title} from "./styles"
-import TodoCardShortTags from "./Tags"
+import TodoCardTags from "./Tags"
 
-const TodoCardContent = props => {
+const TodoCardContent = ({tagsExpanded, tags, title, description, pomoDone, pomoDuration, isMarked}) => {
     return (
-        <Content align={'start'} justify={'space-between'}>
-            <TagsAndText column align={'start'} justify={'flex-start'}>
-                <TodoCardShortTags/>
-                <Title className={"px-3 mw-100 text-truncate"}>
-                    {props.title}
+        <Content>
+            <TagsAndText>
+                <TodoCardTags expanded={tagsExpanded} tags={tags}/>
+                <Title>
+                    {title}
                 </Title>
                 <Description>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in mi ut elit faucibus
-                    aliquet. Maecenas non facilisis dolor, id pretium ex. Integer nec ligula pharetra, consequat
-                    ante facilisis, bibendum est.
+                    {description}
                 </Description>
             </TagsAndText>
             <div className={"p-1"}>
-                <PomoProgressCircle isMouseOverProgress done={2} outOf={4} radius={18} border={3}/>
+                <PomoProgressCircle done={pomoDone + (isMarked && 1) || pomoDone} outOf={pomoDuration} radius={18} border={3}/>
             </div>
         </Content>
     )
 }
 
 TodoCardContent.propTypes = {
-    title: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
     pomoDuration: PropTypes.number,
     pomoDone: PropTypes.number,
-    tags: PropTypes.arrayOf(PropTypes.string)
+    tags: PropTypes.array,
+    tagsExpanded: PropTypes.bool,
+    isMarked: PropTypes.bool,
 }
 export default TodoCardContent

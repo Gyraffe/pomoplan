@@ -8,7 +8,7 @@ const Card = styled.div`
     color: ${props => (props.clearText && props.theme.whiteDirty) || props.theme.lightBlue};
     box-shadow: ${props => (props.shadow && props.theme.shadow[props.shadow]) || props.theme.shadow[1]};
     transition-property: box-shadow;
-    transition-duration:  ${props => props.theme.shadowCardDur};
+    transition-duration: ${props => props.theme.shadowCardDur};
     &:hover {
     box-shadow: ${props => (props.shadow && props.theme.shadow[props.shadow + 4]) ||
     (props.shadowHover && props.theme.shadow[props.shadowHover]) || props.theme.shadow[5]};

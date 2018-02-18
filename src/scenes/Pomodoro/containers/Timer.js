@@ -3,6 +3,7 @@ import {TIMER_DID_START, TIMER_DID_FINISH, TIMER_DID_STOP, TIMER_DID_UPDATE} fro
 import {StartPomoButton} from "../components/styles"
 import {connect} from "react-redux"
 import PomoProgress from "../components/PomoProgress"
+import {unmarkAllTodos} from "../../../partials/TodoCard"
 
 const Timer = props => {
     if(props.timerIsOn)
@@ -30,6 +31,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         stopTimer: () => {
             dispatch(timerDidStop())
+            dispatch(unmarkAllTodos())
         }
     }
 }

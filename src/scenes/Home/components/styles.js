@@ -10,7 +10,7 @@ export const MenuOptionCard = Card.extend`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 10rem;
+    padding: 0 ${props => props.theme.padding.large};
     font-size: ${modularScale(4)};
     text-decoration: none;
     color: ${props => props.important ? props.theme.orange : props.theme.lightBlue};

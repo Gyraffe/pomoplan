@@ -3,11 +3,13 @@ import React from "react"
 import {History} from "./styles"
 import Day from "./Day"
 
-const HistoryBox = () => {
+const HistoryBox = (props) => {
     return (
         <History>
-            <Day day={'today'} pomos={'5'} time={"2:30"}/>
-            <Day day={'yesterday'} pomos={'9'} time={"3:57"}/>
+            {props.history ?
+                Object.keys(props.history).map(day => (<Day key={day} day={day} history={props.history[day]}/>))
+                :
+                ""}
         </History>
     )
 }

@@ -3,20 +3,24 @@ import DayPomos from "./DayPomos"
 import DayTitle from "./DayTitle"
 import PropTypes from 'prop-types'
 
-const Day = ({day, pomos, time}) => {
+const Day = (props) => {
     return (
         <div>
-            <DayTitle day={day} pomos={pomos} time={time}/>
-            <DayPomos/>
+            <DayTitle day={props.day} pomos={props.history.length} time={countPomosTime(props.history.length)}/>
+            <DayPomos history={props.history}/>
         </div>
     )
 }
 
 Day.propTypes = {
     day: PropTypes.string.isRequired,
-    pomos: PropTypes.string,
-    time: PropTypes.string
+    history: PropTypes.array
 }
 
-
 export default Day
+
+const countPomosTime = (pomos) => {
+    const hours = Math.floor((pomos * 30) / 60)
+    const minutes = pomos * 30 - hours * 60
+    return hours + ':' + (minutes === 0 ? '0' + minutes : minutes)
+}

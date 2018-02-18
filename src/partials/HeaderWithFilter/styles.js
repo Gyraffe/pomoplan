@@ -15,7 +15,7 @@ const Title = styled.div`
     color: ${props => props.theme.lightBlue};
     font-size: ${modularScale(1.4)};
     font-weight: ${props => props.theme.fontWeightBold};
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: ${props => props.theme.padding.m} 0 ${props => props.theme.padding.m} ${props => props.theme.padding.l};
 `
 
 const ExpandButton = styled.div`
@@ -26,7 +26,7 @@ const ExpandButton = styled.div`
     flex-shrink: 1;
     height: 100%;
     cursor: pointer;
-    padding: 0.5rem 0;
+    padding: ${props => props.theme.padding.m} 0;
 `
 
 ExpandButton.propTypes = {
@@ -40,7 +40,7 @@ const Options = styled.div`
     align-items: center;
     flex-direction: row;
     border-top: ${props => props.theme.grey} 1px solid;
-    padding: 0.5rem;
+    padding: ${props => props.theme.padding.m};
 `
 Options.propTypes = {
     expanded: PropTypes.bool

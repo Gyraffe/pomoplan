@@ -10,15 +10,15 @@ const DailyStats = props => {
             <Statistics>
                 <Position>
                     <SubTitle>{"TIME:"}</SubTitle>
-                    <Data>{"1:30"}</Data>
+                    <Data>{props.timeLeft}</Data>
                 </Position>
                 <Position>
                     <SubTitle>{"COUNT:"}</SubTitle>
-                    <Data>{"1:30"}</Data>
+                    <Data>{props.countPomos}</Data>
                 </Position>
                 <Position>
                     <SubTitle>{"BREAKS:"}</SubTitle>
-                    <Data>{"2"}</Data>
+                    <Data>{"musze pomyslec"}</Data>
                 </Position>
                 <Position>
                     <SubTitle>{"TAGS:"}</SubTitle>
@@ -30,7 +30,9 @@ const DailyStats = props => {
 }
 
 DailyStats.propTypes = {
-    status: PropTypes.oneOf(['done', 'left']).isRequired
+    status: PropTypes.oneOf(['done', 'left']).isRequired,
+    timeLeft: PropTypes.string,
+    countPomos: PropTypes.number
 }
 
 export default DailyStats
