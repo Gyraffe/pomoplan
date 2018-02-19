@@ -1,12 +1,11 @@
-// import * as A from '../../constants/actionTypes'
 import uniqid from 'uniqid'
 
 const initialState = {
-    "2018-02-18" : [
+    "2018-02-19" : [
         {
             id: uniqid(),
             title: "I did my state!",
-            tags: [{id: uniqid(), tagName:"work", color:"#F2994A"}],
+            tags: ['work', 'school'],
             pomoDone: 18,
             pomoDuration: 25,
             timeStarted: "18:57",
@@ -37,10 +36,11 @@ const initialState = {
         {
             id: uniqid(),
             title: "I did my state!",
-            tags: [{id: uniqid(), tagName:"work", color:"#F2994A"}],
+            tags: ['work', 'school'],
             pomoDone: 18,
             pomoDuration: 25,
             timeStarted: "18:57",
+            project: 'studies',
             timeEnded: "19:24"
         },
         {
@@ -56,11 +56,11 @@ const initialState = {
 
 }
 
-function pomoHistory(state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type) {
         default:
             return state
     }
 }
 
-export default pomoHistory
+export const getDonePomos = (state, date) => state.pomoHistory[date] ? state.pomoHistory[date].length : 0

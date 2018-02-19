@@ -1,18 +1,24 @@
 import { combineReducers } from 'redux'
 import { firebaseReducer } from 'react-redux-firebase'
 import { reducer as formReducer } from 'redux-form'
-import navigationBar from "../scenes/Navigation/reducer"
-import timer from "../scenes/Pomodoro/reducerTimer"
-import todos from "../scenes/TodayView/reducer"
-import todoCards from "../partials/TodoCard/reducer"
-import pomoHistory from "../scenes/PomodoroHistory/reducer"
+import ui from "../reducers/ui"
+import timer from '../reducers/timer'
+import pomoHistory from '../reducers/pomoHistory'
+import todos from '../reducers/todos'
+import todoCards from '../reducers/todoCards'
+import tags from '../reducers/tags'
+import projects from '../reducers/projects'
+import calendar from '../reducers/calendar'
 
 const pomoPlan = combineReducers({
-    navigationBar,
+    ui,
     timer,
     todos,
     todoCards,
     pomoHistory,
+    tags,
+    projects,
+    calendar,
     firebase: firebaseReducer,
     form: formReducer,
 })

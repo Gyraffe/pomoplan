@@ -5,7 +5,7 @@ import React from "react"
 
 const Project = props => {
     return (
-        <div className={props.className}>{props.project ? props.project.title : 'Inbox'}</div>
+        <div className={props.className}>{props.project ? props.project.projectName : 'Inbox'}</div>
     )
 }
 
@@ -30,7 +30,7 @@ ProjectName.propTypes = {
     project: PropTypes.shape({
         id: PropTypes.string,
         color: PropTypes.string,
-        title: PropTypes.string
+        projectName: PropTypes.string
     }),
     /*in rem*/
     width: PropTypes.number.isRequired,

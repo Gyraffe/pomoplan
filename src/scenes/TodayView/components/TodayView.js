@@ -1,22 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import HeaderWithFilter from "../../../partials/HeaderWithFilter/index"
+import HeaderWithFilter from "../../../partials/Header/index"
 import TodoCard from "../../../partials/TodoCard/index"
 import NoTodos from "./NoTodos"
 
-class TodayView extends React.Component {
-    render() {
-        const isExpanded = true
-        return (
-            <div>
-                <HeaderWithFilter title={"todo today"} isExpanded={isExpanded}/>
-                {this.props.todos ?
-                    this.props.todos.map(todo => (<TodoCard key={todo.id} {...todo}/>))
+const TodayView = ({todos}) => {
+    console.log(todos)
+    return (
+        <div>
+            <HeaderWithFilter title={"todo today"}/>
+            {todos ?
+                Object.keys(todos).map( id => (<TodoCard key={id} id={id} {...todos[id]}/>))
                 :
                 <NoTodos/>}
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
 TodayView.propTypes = {

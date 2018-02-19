@@ -1,15 +1,15 @@
-import {timerDidFinish, updateTimer} from "./scenes/Pomodoro/containers/Timer"
+import {actions} from './reducers/timer'
 
 function calculatePendingActions(state) {
     let { timer } = state;
-    let actions = [];
+    let actionArray = [];
     if (timer.isOn && (new Date()).getTime() - timer.startedOn > 25*60*1000) {
-        actions.push(timerDidFinish());
+        actionArray.push(actions.timerDidFinish());
     }
     else if (timer.isOn){
-        actions.push(updateTimer(timer.startedOn))
+        actionArray.push(actions.updateTimer(timer.startedOn))
     }
-    return actions;
+    return actionArray;
 }
 
 export default calculatePendingActions

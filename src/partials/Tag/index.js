@@ -11,7 +11,6 @@ const Tag = ({tagName, color}) => {
 }
 
 Tag.propTypes = {
-    id: PropTypes.string.isRequired,
     tagName: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired
 }

@@ -1,17 +1,21 @@
 import React from "react"
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import {History} from "./styles"
 import Day from "./Day"
 
-const HistoryBox = (props) => {
+const HistoryBox = ({history}) => {
     return (
         <History>
-            {props.history ?
-                Object.keys(props.history).map(day => (<Day key={day} day={day} history={props.history[day]}/>))
+            {history ?
+                Object.keys(history).map(day => (<Day key={day} day={day} dayHistory={history[day]}/>))
                 :
                 ""}
         </History>
     )
+}
+
+HistoryBox.propTypes = {
+    history: PropTypes.object
 }
 
 export default HistoryBox

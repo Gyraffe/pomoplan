@@ -7,7 +7,6 @@ import PomodoroHistory from "../PomodoroHistory"
 import Timer from "./containers/Timer"
 
 class Pomodoro extends React.Component {
-
     render() {
         return (
             <Row className={"mt-3"}>

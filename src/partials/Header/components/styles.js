@@ -1,7 +1,8 @@
-import Card from '../../styles/Card'
+import Card from '../../../styles/Card'
 import styled from "styled-components"
 import {modularScale} from "polished"
 import PropTypes from 'prop-types'
+import {DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from "reactstrap"
 
 const Content = Card.extend`
     display: flex;
@@ -46,11 +47,42 @@ Options.propTypes = {
     expanded: PropTypes.bool
 }
 
-const Option = styled.div`
+const OptionTitle = styled(DropdownToggle).attrs({
+    tag: 'div'
+})`
     color: ${props => props.theme.lightBlue};
+    background-color: ${ props => props.theme.whitePerl};
+    cursor: pointer;
     text-align: center;
     font-size: ${modularScale(1.2)};
     font-weight: ${props => props.theme.fontWeightNormal};
+    transition: color 0.4s;
+    &:active, &:focus, &:hover{
+    background-color: ${ props => props.theme.whitePerl};
+    color: ${props => props.theme.orange};
+    border: none;
+    outline: none;
+    }
 `
 
-export {Content, Title, ExpandButton, Options, Option}
+const Option = styled(UncontrolledDropdown)`
+    flex-basis: 50%;
+`
+
+const Dropdown = styled(DropdownMenu)`
+    background-color: ${props => props.theme.whitePerl};
+    width: 100%;
+    transition: box-shadow 0.4s;
+    text-align: center;
+    box-shadow: ${props => props.theme.shadow[5]};
+    &:hover, :focus {
+        box-shadow: ${props => props.theme.shadow[8]};
+    }
+`
+
+const DropdownOption = styled(DropdownItem)`
+    background-color: ${props => props.color};
+    color: ${ props => props.theme.whitePerl};
+`
+
+export {Content, Title, ExpandButton,DropdownOption,  Option, Options, OptionTitle, Dropdown}

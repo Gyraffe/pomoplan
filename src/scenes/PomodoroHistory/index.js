@@ -1,17 +1,14 @@
 import React from 'react'
-import HeaderWithFilter from "../../partials/HeaderWithFilter"
+import HeaderWithFilter from "../../partials/Header"
 import History from "./containers/History"
 
-class PomodoroHistory extends React.Component{
-    render(){
-        const isExpanded = true
-        return(
-            <div>
-                <HeaderWithFilter title={"pomo today"} isExpanded={isExpanded}/>
-                <History/>
-            </div>
-        )
-    }
+const PomodoroHistory = props => {
+    return (
+        <div>
+            <HeaderWithFilter title={"pomo today"}/>
+            <History/>
+        </div>
+    )
 }
 
 export default PomodoroHistory

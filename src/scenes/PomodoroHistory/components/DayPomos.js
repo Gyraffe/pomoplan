@@ -1,15 +1,14 @@
 import React from 'react'
-import PomoCard from "./PomoCard"
 import {PomosContainer} from "./styles"
 import PropTypes from "prop-types"
+import HistoryCard from "../containers/HistoryCard"
 
-const DayPomos = (props) => {
-    console.log(props)
+const DayPomos = ({dayHistory}) => {
     return (
         <PomosContainer>
-            {props.history ?
-                props.history.reverse().map(task =>
-                    <PomoCard key={task.id} {...task} />)
+            {dayHistory ?
+                dayHistory.reverse().map(task =>
+                    <HistoryCard key={task.id} {...task} />)
                 :
                 ""}
         </PomosContainer>
@@ -17,7 +16,7 @@ const DayPomos = (props) => {
 }
 
 DayPomos.propTypes = {
-    history: PropTypes.array
+    dayHistory: PropTypes.array
 }
 
 export default DayPomos

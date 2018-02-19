@@ -20,7 +20,7 @@ const PomoCard = ({project, title, tags, timeStarted, timeEnded, pomoDone, pomoD
                 <Tags>
                     {tags ?
                         tags.map(tag => (
-                            <Tag key={tag.id} {...tag}/>
+                            <Tag key={tag.tagName} {...tag}/>
                         ))
                         : ''}
                 </Tags>

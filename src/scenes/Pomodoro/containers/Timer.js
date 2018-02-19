@@ -1,9 +1,9 @@
 import React from 'react'
-import {TIMER_DID_START, TIMER_DID_FINISH, TIMER_DID_STOP, TIMER_DID_UPDATE} from '../../../constants/actionTypes'
 import {StartPomoButton} from "../components/styles"
+import {actions} from '../../../reducers/timer'
 import {connect} from "react-redux"
 import PomoProgress from "../components/PomoProgress"
-import {unmarkAllTodos} from "../../../partials/TodoCard"
+import {actions as action} from "../../../reducers/todoCards"
 
 const Timer = props => {
     if(props.timerIsOn)
@@ -27,11 +27,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         startTimer: () => {
-            dispatch(timerDidStart())
+            dispatch(actions.timerDidStart())
         },
         stopTimer: () => {
-            dispatch(timerDidStop())
-            dispatch(unmarkAllTodos())
+            dispatch(actions.timerDidStop())
+            dispatch(action.unmarkAllTodos())
         }
     }
 }
@@ -40,42 +40,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Timer)
-
-function timerDidStart() {
-    return {
-        type: TIMER_DID_START,
-        timeInMilliseconds: new Date().getTime(),
-        seconds: 0,
-        minutes: 25
-    }
-}
-
-function timerDidStop() {
-    return {
-        type: TIMER_DID_STOP,
-    }
-}
-
-export function timerDidFinish() {
-    return {
-        type: TIMER_DID_FINISH
-    }
-}
-
-export function updateTimer(milliseconds) {
-    return {
-        type: TIMER_DID_UPDATE,
-        seconds: getSeconds(milliseconds),
-        minutes: getMinutes(milliseconds)
-    }
-}
-
-function getSeconds(milliseconds) {
-    const now = new Date().getTime()
-    return 59 - (Math.floor((now - milliseconds) / 1000) % 60)
-}
-
-function getMinutes(milliseconds) {
-    const now = new Date().getTime()
-    return 24 - Math.floor((now - milliseconds) / 1000 / 60)
-}

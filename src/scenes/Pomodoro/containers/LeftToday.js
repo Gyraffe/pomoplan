@@ -1,6 +1,7 @@
 import React from 'react'
 import DailyStats from "../components/DailyStats"
 import {connect} from "react-redux"
+import {getAllPomodoroTime} from "../../../utils/pomodoroTime"
 
 const LeftToday = props => {
     return (
@@ -9,17 +10,11 @@ const LeftToday = props => {
 }
 
 const mapStateToProps = state => {
+    const today = Object.keys(state.todos)
     return {
-        timeLeft: countPomosTime(state.todos.length),
-        countPomos: state.todos.length,
+        timeLeft: today ? getAllPomodoroTime(today.length) : '0',
+        countPomos: today ? today.length : 0,
     }
 }
 
 export default connect(mapStateToProps)(LeftToday)
-
-
-const countPomosTime = (pomos) => {
-    const hours = Math.floor((pomos * 30) / 60)
-    const minutes = pomos * 30 - hours * 60
-    return hours + ':' + (minutes === 0 ? '0' + minutes : minutes)
-}

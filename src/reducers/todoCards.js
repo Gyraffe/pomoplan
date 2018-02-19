@@ -1,10 +1,14 @@
-import * as A from '../../constants/actionTypes'
+const types = {
+    TOGGLE_TODO_TAGS: 'TOGGLE_TODO_TAGS',
+    TOGGLE_TODO_MARK_DONE: 'TOGGLE_TODO_MARK_DONE',
+    UNMARK_ALL_TODOS: 'UNMARK_ALL_TODOS',
+}
 
 const initialState = {}
 
-function todoCards(state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type) {
-        case A.TOGGLE_TODO_TAGS:
+        case types.TOGGLE_TODO_TAGS:
             return Object.keys(state).includes(action.id) ?
                 {
                     ...state,
@@ -20,7 +24,7 @@ function todoCards(state = initialState, action) {
                         tagsExpanded: true
                     }
                 }
-        case A.TOGGLE_TODO_MARK_DONE:
+        case types.TOGGLE_TODO_MARK_DONE:
             return Object.keys(state).includes(action.id) ?
                 {
                     ...state,
@@ -36,7 +40,7 @@ function todoCards(state = initialState, action) {
                         isMarked: true
                     }
                 }
-        case A.UNMARK_ALL_TODOS:
+        case types.UNMARK_ALL_TODOS:
             return mapTodos(state, todo => ({
                 ...todo,
                 isMarked: false,
@@ -46,7 +50,11 @@ function todoCards(state = initialState, action) {
     }
 }
 
-export default todoCards
+export const actions = {
+    toggleExpandTags: (id) => ({type: types.TOGGLE_TODO_TAGS, id}),
+    toggleTaskDoneOnPomo: (id) => ({type: types.TOGGLE_TODO_MARK_DONE, id}),
+    unmarkAllTodos: () => ({type: types.UNMARK_ALL_TODOS}),
+}
 
 const mapTodos = (state, callback) => {
     Object.keys(state).map(key =>

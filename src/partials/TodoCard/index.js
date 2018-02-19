@@ -1,6 +1,8 @@
 import {connect} from "react-redux"
 import TodoCard from "./components/TodoCard"
-import {TOGGLE_TODO_TAGS, TOGGLE_TODO_MARK_DONE, UNMARK_ALL_TODOS} from "../../constants/actionTypes"
+import {actions} from "../../reducers/todoCards"
+import {getTags} from "../../reducers/tags"
+import {getProject} from "../../reducers/projects"
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -9,34 +11,16 @@ const mapStateToProps = (state, ownProps) => {
         isDuringPomo: state.timer.isOn,
         isMarked: Object.keys(state.todoCards).includes(ownProps.id) ?
         state.todoCards[ownProps.id].isMarked : false,
+        tags: getTags(ownProps, state.tags),
+        project: getProject(ownProps, state)
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        expandTags: () => dispatch(toggleExpandTags(ownProps.id)),
-        toggleDone: () => dispatch(toggleTaskDoneOnPomo(ownProps.id))
+        expandTags: () => dispatch(actions.toggleExpandTags(ownProps.id)),
+        toggleDone: () => dispatch(actions.toggleTaskDoneOnPomo(ownProps.id))
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoCard)
-
-export function toggleExpandTags(id){
-    return {
-        type: TOGGLE_TODO_TAGS,
-        id
-    }
-}
-
-function toggleTaskDoneOnPomo(id){
-    return {
-        type: TOGGLE_TODO_MARK_DONE,
-        id
-    }
-}
-
-export function unmarkAllTodos() {
-    return {
-        type: UNMARK_ALL_TODOS
-    }
-}

@@ -24,7 +24,6 @@ PomoProgressCircle.propTypes = {
 
 export default PomoProgressCircle
 
-
 function calculateFill(done, outOf, fullCircle) {
     const percentageDone = done / outOf
     return (1 - percentageDone) * fullCircle

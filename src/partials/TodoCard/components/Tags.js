@@ -10,8 +10,8 @@ const TodoCardTags = props => {
             {props.tags ?
                 props.tags.map(tag => (
                     props.expanded ?
-                        <Tag key={tag.id} {...tag}/> :
-                        <ShortTag key={tag.id} {...tag}/>
+                        <Tag key={tag.tagName} {...tag}/> :
+                        <ShortTag key={tag.tagName} {...tag}/>
                 ))
                 : ''}
         </Tags>

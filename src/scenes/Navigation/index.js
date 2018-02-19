@@ -1,23 +1,17 @@
 import {connect} from "react-redux"
 import NavBar from "./components/NavBar"
-import * as A from "../../constants/actionTypes"
+import {actions} from "../../reducers/ui"
 
 const mapStateToProps = (state) => {
     return {
-        isOpen: state.navigationBar.navigationIsOpen
+        isOpen: state.ui.navigationIsOpened
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        openNavigation: () => dispatch(toggleNavigation())
+        openNavigation: () => dispatch(actions.toggleNavigation())
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
-
-function toggleNavigation(){
-    return {
-        type: A.TOGGLE_NAVIGATION
-    }
-}
