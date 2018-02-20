@@ -4,14 +4,13 @@ import {Info, Option, Options, Suggestion, TextInfo} from "./styles"
 import Icon from "../../../styles/Icon"
 
 const TimerFinish = (props) => {
-    console.log(props.markedTodos)
     return (
         <Info>
             <TextInfo>{"Pomodoro has ended!"}<br/>
                 <Suggestion>{"Mark the todos you have done during this 25 minutes and submit!"}</Suggestion>
             </TextInfo>
             <Options>
-                <Option primary onClick={() => props.handleSubmit(props.markedTodos ,props.getTodos(props.markedTodos), props.timerStartedOn)}>
+                <Option primary onClick={props.handleSubmit}>
                     <Icon icon={"done"} primary/>
                 </Option>
                 <Option accent onClick={props.handleClear}>

@@ -1,5 +1,9 @@
+import {actions as calendar} from './calendar'
+import {actions as pomoHistory} from './pomoHistory'
+import {getMarkedTodos} from "./todoCards"
+
 export const types = {
-    ADD_POMO: 'ADD_POMO'
+    ADD_POMO_DONE: 'ADD_POMO_DONE'
 }
 
 const initialState = {
@@ -43,29 +47,30 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case types.ADD_POMO:
-            return addPomoDone(state, action.ids)
+        case types.ADD_POMO_DONE:
+            return {
+                ...state,
+                [action.id]: {
+                    ...state[action.id],
+                    pomoDone: state[action.id].pomoDone + 1,
+                }
+            }
         default:
             return state
     }
 }
 
 export const actions = {
-    incrementPomoDone: (ids) => ({type: types.ADD_POMO, ids})
+    addPomoDone: (id) => ({type: types.ADD_POMO_DONE, id}),
+    addPomoDoneAndUpdateCalendar: () => (dispatch, getState) => {
+        let ids = getMarkedTodos(getState())
+        ids.forEach(id => dispatch(actions.addPomoDone(id)))
+        let todosState = getState().todos
+        ids.forEach(id => todosState[id].pomoDone === todosState[id].pomoDuration ?
+            dispatch(calendar.updateCompletedTodo(id)) : '')
+        ids.forEach(id => dispatch(pomoHistory.createPomoObject(id)))
+    }
 }
 
 export const selectTodos = (state, ids) => ids ? ids.map(id => ({id: id, todo: state.todos[id]})) : undefined
-
-const addPomoDone = (state, ids) => {
-    if(ids)
-        ids.map(id =>
-            state = {
-                ...state,
-                [id]: {
-                    ...id,
-                    pomoDone: id.pomoDone !== id.pomoDuration ? id.pomoDone + 1 : id.pomoDone
-                }
-            }
-        )
-    return state
-}
+export const selectTodo = (state, id) => state.todos[id]

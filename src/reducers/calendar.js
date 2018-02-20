@@ -1,7 +1,7 @@
 import {getToday} from "../utils/date"
 
 export const types = {
-    UPDATE_COMPLETED_TODOS: 'UPDATE_COMPLETED_TODOS'
+    UPDATE_COMPLETED_TODO: 'UPDATE_COMPLETED_TODO'
 }
 
 const initialState = {
@@ -16,29 +16,22 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case types.UPDATE_COMPLETED_TODOS:
-            return {
-                ...state,
-                [getToday()]: updateTodos(state, action.ids)
-            }
+        case types.UPDATE_COMPLETED_TODO:
+            return updateTodos(state, todo => todo.id === action.id)
         default:
             return state
     }
 }
 
 export const actions = {
-    updateCompletedTodos: (ids) => ({type: types.UPDATE_COMPLETED_TODOS, ids})
+    updateCompletedTodo: (id) => ({type: types.UPDATE_COMPLETED_TODO, id})
 }
 
-export const checkIfCompletedTodo = (state, todos) =>
-    todos.map(todo => state.todos[todo].pomoDone === state.todos[todo].pomoDuration ?
-        state.calendar[getToday()].forEach(calendarTodo => calendarTodo.id === todo ? true : undefined)
-        : undefined
-    ).filter(checkIfUndefined)
-
-const updateTodos = (state, todos) => {
-    return todos ? state.calendar[getToday()].map(todo => todos.includes(todo) ? todo.isCompleted = false : todo) :
-        state.calendar[getToday()]
+const updateTodos = (state, callback) => {
+    const todoIndex = state[getToday()].findIndex(callback)
+    let newState = state
+    newState[getToday()][todoIndex].isCompleted = true
+    return newState
 }
 
 export const getDayNotCompleted = (state, date) => (

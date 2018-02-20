@@ -1,125 +1,47 @@
 import uniqid from 'uniqid'
+import {selectTodo} from "./todos"
 import {getHourAndMinutes, getToday} from "../utils/date"
 
 export const types = {
-    ADD_POMOS: 'ADD_POMOS'
+    ADD_POMO_TO_HISTORY: 'ADD_POMO_TO_HISTORY'
 }
 
-const initialState = {
-    "2018-02-20": [
-        {
-            id: uniqid(),
-            title: "I did my state!",
-            tags: ['work', 'school'],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            timeEnded: "19:24"
-        },
-        {
-            id: uniqid(),
-            title: "I did my state!",
-            tags: ['work', 'school'],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            timeEnded: "19:24"
-        },
-        {
-            id: uniqid(),
-            title: "I did my second!",
-            tags: [],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            timeEnded: "19:24"
-        }
-    ],
-    "2018-02-19": [
-        {
-            id: uniqid(),
-            title: "I did my state!",
-            tags: ['work', 'school'],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            timeEnded: "19:24"
-        },
-        {
-            id: uniqid(),
-            title: "I did my second!",
-            tags: [],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            timeEnded: "19:24"
-        }
-    ],
-    "2018-02-17": [
-        {
-            id: uniqid(),
-            title: "I did my state!",
-            tags: [],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            timeEnded: "19:24"
-        }
-    ],
-    "2018-02-16": [
-        {
-            id: uniqid(),
-            title: "I did my state!",
-            tags: ['work', 'school'],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            project: 'studies',
-            timeEnded: "19:24"
-        },
-        {
-            id: uniqid(),
-            title: "I did my second!",
-            tags: [],
-            pomoDone: 18,
-            pomoDuration: 25,
-            timeStarted: "18:57",
-            timeEnded: "19:24"
-        }
-    ],
-
-}
+const initialState = {}
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case types.ADD_POMOS:
-            return {
-                ...state,
-                [getToday()]: addDonePomos(state, action.ids, action.timerStartedOn)
-            }
+        case types.ADD_POMO_TO_HISTORY:
+            return Object.keys(state).includes(getToday()) ?
+                {
+                    ...state,
+                    [getToday()]: [
+                        action.object,
+                        ...state[getToday()]
+                    ]
+                } :
+                {
+                    ...state,
+                    [getToday()]: [
+                        action.object,
+                    ]
+                }
         default:
             return state
     }
 }
 
 export const actions = {
-    addPomos: (ids, timerStartedOn) => ({type: types.ADD_POMOS, ids, timerStartedOn})
+    addPomoObject: (object) => ({type: types.ADD_POMO_TO_HISTORY, object}),
+    createPomoObject: (id) => (dispatch, getState) => {
+        let todo = selectTodo(getState(), id)
+        let pomoObject = {
+            ...todo,
+            id: uniqid(),
+            timeStarted: getHourAndMinutes(getState().timer.startedOn),
+            timeEnded: getHourAndMinutes(),
+        }
+        dispatch(actions.addPomoObject(pomoObject))
+    }
 }
 
 export const getDonePomos = (state, date) => state.pomoHistory[date] ? state.pomoHistory[date].length : 0
-
-export const addDonePomos = (state, ids, timerStartedOn) => {
-    if(ids) {
-        state[getToday()].unshift(ids.map(todo => ({
-            id: uniqid(),
-            title: todo.title,
-            tags: todo.tags,
-            pomoDone: todo.pomoDone + 1,
-            pomoDuration: todo.pomoDuration,
-            project: todo.project,
-            timeStarted: getHourAndMinutes(timerStartedOn),
-            timeEnded: getHourAndMinutes()
-        })))
-    }
-    return state[getToday()]
-}

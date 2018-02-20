@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 
 const mapStateToProps = (state) => {
     return {
-        history: state.pomoHistory
+        historyDays: Object.keys(state.pomoHistory)
     }
 }
 
