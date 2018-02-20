@@ -4,7 +4,8 @@ const types = {
     UNMARK_ALL_TODOS: 'UNMARK_ALL_TODOS',
 }
 
-const initialState = {}
+const initialState = {
+}
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -20,7 +21,6 @@ export default (state = initialState, action) => {
                 {
                     ...state,
                     [action.id]: {
-                        id: action.id,
                         tagsExpanded: true
                     }
                 }
@@ -36,7 +36,6 @@ export default (state = initialState, action) => {
                 {
                     ...state,
                     [action.id]: {
-                        id: action.id,
                         isMarked: true
                     }
                 }
@@ -54,6 +53,14 @@ export const actions = {
     toggleExpandTags: (id) => ({type: types.TOGGLE_TODO_TAGS, id}),
     toggleTaskDoneOnPomo: (id) => ({type: types.TOGGLE_TODO_MARK_DONE, id}),
     unmarkAllTodos: () => ({type: types.UNMARK_ALL_TODOS}),
+}
+
+export const getMarkedTodos = (state) => (
+    Object.keys(state.todoCards).length !== 0 ? Object.keys(state.todoCards).map(todo => !todo.isMarked ? todo : undefined
+    ).filter(checkIfUndefined) : undefined)
+
+function checkIfUndefined(value) {
+    if(value !== undefined) return value
 }
 
 const mapTodos = (state, callback) => {

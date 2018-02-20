@@ -8,11 +8,12 @@ html {
     box-sizing: border-box;
 
 }
+
 *, *::before, *::after {
     box-sizing: inherit;
 }
 
-#root{
+#root {
     height: inherit;
     width: inherit;
 }

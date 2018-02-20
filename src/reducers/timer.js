@@ -3,13 +3,17 @@ import {getCurrentTime} from "../utils/date"
 
 export const types = {
     TIMER_DID_START: 'TIMER_DID_START',
-    TIMER_DID_STOP: 'TIMER_DID_STOP',
+    TIMER_DID_DELETE: 'TIMER_DID_DELETE',
     TIMER_DID_FINISH: 'TIMER_DID_FINISH',
     TIMER_DID_UPDATE: 'TIMER_DID_UPDATE',
 }
 
 const initialState = {
     isOn: false,
+    seconds: 0,
+    minutes: 25,
+    startedOn: undefined,
+    hasFinished: false
 }
 
 export default (state = initialState, action) => {
@@ -19,18 +23,20 @@ export default (state = initialState, action) => {
                 ...state,
                 isOn: !state.isOn,
                 startedOn: getCurrentTime(),
-                seconds: 0,
-                minutes: 25
             }
-        case types.TIMER_DID_STOP:
+        case types.TIMER_DID_DELETE:
             return {
                 ...state,
-                isOn: !state.isOn
+                isOn: false,
+                seconds: 0,
+                minutes: 25,
+                startedOn: undefined,
+                hasFinished: false
             }
         case types.TIMER_DID_FINISH:
             return {
                 ...state,
-                isOn: false
+                hasFinished: true
             }
         case types.TIMER_DID_UPDATE: {
             return {
@@ -47,6 +53,6 @@ export default (state = initialState, action) => {
 export const actions = {
     timerDidStart: () => ({type: types.TIMER_DID_START}),
     timerDidFinish: () => ({type: types.TIMER_DID_FINISH}),
-    timerDidStop: () => ({type: types.TIMER_DID_STOP}),
-    updateTimer: (milliseconds) => ({type: types.TIMER_DID_UPDATE, milliseconds})
+    timerDidDelete: () => ({type: types.TIMER_DID_DELETE}),
+    updateTimer: (milliseconds) => ({type: types.TIMER_DID_UPDATE, milliseconds}),
 }

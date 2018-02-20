@@ -1,3 +1,7 @@
+export const types = {
+    ADD_POMO: 'ADD_POMO'
+}
+
 const initialState = {
     jduoghru: {
         title: 'I did my first todo!',
@@ -39,9 +43,29 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case types.ADD_POMO:
+            return addPomoDone(state, action.ids)
         default:
             return state
     }
 }
 
-export const selectTodos = (state, ids) => ids ? ids.map(id => (state.todos[id])) : undefined
+export const actions = {
+    incrementPomoDone: (ids) => ({type: types.ADD_POMO, ids})
+}
+
+export const selectTodos = (state, ids) => ids ? ids.map(id => ({id: id, todo: state.todos[id]})) : undefined
+
+const addPomoDone = (state, ids) => {
+    if(ids)
+        ids.map(id =>
+            state = {
+                ...state,
+                [id]: {
+                    ...id,
+                    pomoDone: id.pomoDone !== id.pomoDuration ? id.pomoDone + 1 : id.pomoDone
+                }
+            }
+        )
+    return state
+}

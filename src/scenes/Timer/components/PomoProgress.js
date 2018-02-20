@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Progress, ProgressLabel, StartedPomoProgress} from "./styles"
 
-const PomoProgress = ({minutes, seconds, onClick}) => {
+const PomoProgress = ({minutes, seconds, handleClick}) => {
     return (
-        <StartedPomoProgress onClick={onClick}>
+        <StartedPomoProgress onClick={handleClick}>
             <Progress done={minutes} outOf={25}> </Progress>
             <ProgressLabel>{
                 (minutes < 10 ? '0' + minutes : minutes)
@@ -18,7 +18,8 @@ const PomoProgress = ({minutes, seconds, onClick}) => {
 PomoProgress.propTypes = {
     minutes: PropTypes.number.isRequired,
     seconds: PropTypes.number.isRequired,
-    onClick: PropTypes.func
+    handleClick: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired
 }
 
 export default PomoProgress

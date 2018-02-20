@@ -41,3 +41,9 @@ export const getDayAndMonthString = (date) => {
 export const getToday = () => new Date().toISOString().split("T")[0]
 
 export const getCurrentTime = () => new Date().getTime()
+
+export const getHourAndMinutes = (date) => {
+    let minutes = date ? new Date(date).getMinutes() : new Date().getMinutes()
+    let hour = date ? new Date(date).getHours() : new Date().getHours()
+    return ( hour < 10 ? "0" + hour : hour ) + ":" + ( minutes < 10 ? "0" + minutes : minutes )
+}

@@ -5,12 +5,11 @@ import TodoCard from "../../../partials/TodoCard/index"
 import NoTodos from "./NoTodos"
 
 const TodayView = ({todos}) => {
-    console.log(todos)
     return (
         <div>
             <HeaderWithFilter title={"todo today"}/>
             {todos ?
-                Object.keys(todos).map( id => (<TodoCard key={id} id={id} {...todos[id]}/>))
+                todos.map( todo => (<TodoCard key={todo.id} id={todo.id} {...todo.todo}/>))
                 :
                 <NoTodos/>}
         </div>

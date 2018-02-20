@@ -6,8 +6,8 @@ const History = Card.extend`
   display: flex;
   flex-direction: column;
   margin-top: ${props => props.theme.margin.xm};
+  max-height: 60vh;
   overflow-y: auto;
-  max-height: 100%;
 `
 const DayHeader = styled.div`
   display: flex;
