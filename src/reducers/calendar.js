@@ -1,14 +1,16 @@
 import {getToday} from "../utils/date"
+import {filterUndefined} from "../utils/objects"
 
 export const types = {
     UPDATE_COMPLETED_TODO: 'UPDATE_COMPLETED_TODO'
 }
 
 const initialState = {
-    "2018-02-20": [
+    "2018-02-22": [
         {id: 'jduoghru', isCompleted: false},
         {id: 'jduoghrt', isCompleted: false},
-        {id: 'jduoghrs', isCompleted: false}
+        {id: 'jduoghrs', isCompleted: false},
+        {id: 'jduogars', isCompleted: false},
     ],
     "2018-02-18": [],
     "2018-02-17": []
@@ -35,9 +37,5 @@ const updateTodos = (state, callback) => {
 }
 
 export const getDayNotCompleted = (state, date) => (
-    state.calendar[date] ? state.calendar[date].map(element => !element.isCompleted ? element.id : undefined
-    ).filter(checkIfUndefined) : undefined)
-
-function checkIfUndefined(value) {
-    if(value !== undefined) return value
-}
+    state.calendar[date] ? filterUndefined(state.calendar[date].map(element => !element.isCompleted ? element.id : undefined
+    )) : undefined)

@@ -4,8 +4,7 @@ const types = {
     UNMARK_ALL_TODOS: 'UNMARK_ALL_TODOS',
 }
 
-const initialState = {
-}
+const initialState = {}
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -56,11 +55,13 @@ export const actions = {
 }
 
 export const getMarkedTodos = (state) => (
-    Object.keys(state.todoCards).length !== 0 ? Object.keys(state.todoCards).map(todo => !todo.isMarked ? todo : undefined
-    ).filter(checkIfUndefined) : undefined)
+    Object.keys(state.todoCards).length !== 0 ? Object.keys(state.todoCards).map(todo =>
+        state.todoCards[todo].isMarked ? todo : undefined
+    ).filter(checkIfUndefined) : undefined
+)
 
 function checkIfUndefined(value) {
-    if(value !== undefined) return value
+    return value !== undefined
 }
 
 const mapTodos = (state, callback) => {
