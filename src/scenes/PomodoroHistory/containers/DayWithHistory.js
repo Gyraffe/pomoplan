@@ -1,9 +1,10 @@
 import {connect} from "react-redux"
 import Day from "../components/Day"
+import {getPomoHistory} from "../../../reducers/pomoHistory"
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        dayHistory: state.pomoHistory[ownProps.day].reverse()
+        dayHistory: getPomoHistory(state, ownProps.day)
     }
 }
 

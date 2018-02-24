@@ -2,6 +2,7 @@ import React from 'react'
 import Card from "../../../styles/Card"
 import PropTypes from 'prop-types'
 import {CardTitle, Data, Position, Statistics, SubTitle} from "./styles"
+import Tag from "../../../partials/Tag"
 
 const DailyStats = props => {
     return (
@@ -22,7 +23,11 @@ const DailyStats = props => {
                 </Position>
                 <Position>
                     <SubTitle>{"TAGS:"}</SubTitle>
-                    <Data>{"some tags"}</Data>
+                    <Data>{props.tags ?
+                        props.tags.map(tag => (
+                            <Tag key={tag.tagName} {...tag}/>
+                        ))
+                        : ''}</Data>
                 </Position>
             </Statistics>
         </Card>
@@ -32,7 +37,8 @@ const DailyStats = props => {
 DailyStats.propTypes = {
     status: PropTypes.oneOf(['done', 'left']).isRequired,
     timeLeft: PropTypes.string,
-    countPomos: PropTypes.number
+    countPomos: PropTypes.number,
+    tags: PropTypes.array
 }
 
 export default DailyStats

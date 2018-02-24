@@ -35,13 +35,22 @@ export const actions = {
     createPomoObject: (id) => (dispatch, getState) => {
         let todo = selectTodo(getState(), id)
         let pomoObject = {
-            ...todo,
-            id: uniqid(),
+            id: id,
             timeStarted: getHourAndMinutes(getState().timer.startedOn),
             timeEnded: getHourAndMinutes(),
+            pomoDone: todo.pomoDone
         }
         dispatch(actions.addPomoObject(pomoObject))
     }
 }
 
 export const getDonePomos = (state, date) => state.pomoHistory[date] ? state.pomoHistory[date].length : 0
+
+export const getPomoHistory = (state, date) => (state.pomoHistory[date].map(pomo => ({
+    ...pomo,
+    title: state.todos[pomo.id].title,
+    tags: state.todos[pomo.id].tags,
+    project: state.todos[pomo.id].project,
+    pomoDuration: state.todos[pomo.id].pomoDuration,
+    pomoId: uniqid()
+})).reverse())

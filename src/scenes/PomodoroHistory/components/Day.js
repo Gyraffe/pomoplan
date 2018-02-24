@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import {getAllPomodoroTime} from "../../../utils/pomodoroTime"
 
 const Day = ({day, dayHistory}) => {
-    console.log(dayHistory)
     return (
         <div>
             <DayTitle day={day} pomos={dayHistory.length} time={getAllPomodoroTime(dayHistory.length)}/>

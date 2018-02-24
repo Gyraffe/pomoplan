@@ -7,8 +7,8 @@ const DayPomos = ({dayHistory}) => {
     return (
         <PomosContainer>
             {dayHistory ?
-                dayHistory.reverse().map(task =>
-                    <HistoryCard key={task.id} {...task} />)
+                dayHistory.reverse().map(pomo =>
+                    <HistoryCard key={pomo.pomoId} {...pomo} />)
                 :
                 ""}
         </PomosContainer>

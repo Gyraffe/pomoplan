@@ -6,7 +6,7 @@ export const types = {
 }
 
 const initialState = {
-    "2018-02-22": [
+    "2018-02-24": [
         {id: 'jduoghru', isCompleted: false},
         {id: 'jduoghrt', isCompleted: false},
         {id: 'jduoghrs', isCompleted: false},
@@ -39,3 +39,9 @@ const updateTodos = (state, callback) => {
 export const getDayNotCompleted = (state, date) => (
     state.calendar[date] ? filterUndefined(state.calendar[date].map(element => !element.isCompleted ? element.id : undefined
     )) : undefined)
+
+export const getTodayLeftTags = (state) => {
+    const ids = state.calendar[getToday()].map(key => !key.isCompleted ? key.id : undefined).filter(id => id !== undefined)
+    const tags = [].concat.apply([], ids.map(id => state.todos[id].tags).filter(tag => tag !== undefined)).map(id => state.tags[id])
+    return [...new Set(tags)]
+}

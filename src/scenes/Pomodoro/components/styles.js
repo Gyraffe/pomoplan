@@ -30,8 +30,9 @@ const Data = styled.div`
     font-size: ${modularScale(0.8)};
     text-align: right;
     float: right;
+    display: flex;
+    flex-wrap: wrap;
 `
-
 export {
     CardTitle, Position, Statistics, SubTitle, Data
 }

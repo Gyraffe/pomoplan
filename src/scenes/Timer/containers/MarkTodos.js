@@ -5,10 +5,6 @@ import TimerFinish from "../components/TimerFinish"
 import {actions as ui} from "../../../reducers/ui"
 import {actions as timer} from "../../../reducers/timer"
 
-const mapStateToProps = (state) => {
-    return {}
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
         handleSubmit: () => {
@@ -21,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimerFinish)
+export default connect(null, mapDispatchToProps)(TimerFinish)
