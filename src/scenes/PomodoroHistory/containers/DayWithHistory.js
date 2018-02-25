@@ -1,6 +1,6 @@
 import {connect} from "react-redux"
 import Day from "../components/Day"
-import {getPomoHistory} from "../../../reducers/pomoHistory"
+import {getPomoHistory} from "../../../selectors/pomoHistory"
 
 const mapStateToProps = (state, ownProps) => {
     return {

@@ -9,7 +9,7 @@ const TodayView = ({todos}) => {
         <div>
             <HeaderWithFilter title={"todo today"}/>
             {todos ?
-                todos.map( todo => (<TodoCard key={todo.id} id={todo.id} {...todo.todo}/>))
+                todos.map( todo => (<TodoCard key={todo.id} {...todo}/>))
                 :
                 <NoTodos/>}
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import DailyStats from "../components/DailyStats"
 import {connect} from "react-redux"
 import {getAllPomodoroTime} from "../../../utils/pomodoroTime"
-import {getTodayLeftTags} from "../../../reducers/calendar"
+import {getTodayLeftTags} from "../../../selectors/calendar"
 
 const LeftToday = props => {
     return (

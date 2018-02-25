@@ -1,8 +1,8 @@
 import {connect} from "react-redux"
 import TodoCard from "./components/TodoCard"
 import {actions} from "../../reducers/todoCards"
-import {getTags} from "../../reducers/tags"
-import {getProject} from "../../reducers/projects"
+import {getComponentTags} from "../../selectors/tags"
+import {getProject} from "../../selectors/projects"
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -11,8 +11,8 @@ const mapStateToProps = (state, ownProps) => {
         isDuringPomo: state.timer.isOn,
         isMarked: Object.keys(state.todoCards).includes(ownProps.id) ?
         state.todoCards[ownProps.id].isMarked : false,
-        tags: getTags(ownProps, state.tags),
-        project: getProject(ownProps, state)
+        tags: getComponentTags(state, ownProps),
+        project: getProject(state, ownProps)
     }
 }
 

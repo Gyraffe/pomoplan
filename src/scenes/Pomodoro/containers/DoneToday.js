@@ -3,7 +3,7 @@ import DailyStats from "../components/DailyStats"
 import {connect} from "react-redux"
 import {getAllPomodoroTime} from "../../../utils/pomodoroTime"
 import {getToday} from "../../../utils/date"
-import {getDonePomos} from "../../../reducers/pomoHistory"
+import {getDonePomos} from "../../../selectors/pomoHistory"
 
 const DoneToday = props => {
     return (

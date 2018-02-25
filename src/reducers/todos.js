@@ -1,6 +1,6 @@
 import {actions as calendar} from './calendar'
 import {actions as pomoHistory} from './pomoHistory'
-import {getMarkedTodos} from "./todoCards"
+import {getMarkedTodos} from "../selectors/todoCards"
 
 export const types = {
     ADD_POMO_DONE: 'ADD_POMO_DONE'
@@ -31,7 +31,7 @@ const initialState = {
         pomoDone: 4,
         pomoDuration: 6,
         project: 'school',
-        tags: undefined,
+        tags: ['work'],
         date: undefined
     },
     jduogars: {
@@ -40,7 +40,7 @@ const initialState = {
         pomoDone: 4,
         pomoDuration: 6,
         project: 'school',
-        tags: undefined,
+        tags: ['school'],
         date: undefined
     }
 }
@@ -71,6 +71,3 @@ export const actions = {
         ids.forEach(id => dispatch(pomoHistory.createPomoObject(id)))
     }
 }
-
-export const selectTodos = (state, ids) => ids ? ids.map(id => ({id: id, todo: state.todos[id]})) : undefined
-export const selectTodo = (state, id) => state.todos[id]

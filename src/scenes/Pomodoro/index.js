@@ -5,6 +5,7 @@ import LeftToday from "./containers/LeftToday"
 import TodayView from "../TodayView"
 import PomodoroHistory from "../PomodoroHistory"
 import Timer from "../Timer"
+import {getToday} from "../../utils/date"
 
 class Pomodoro extends React.Component {
     render() {
@@ -20,7 +21,7 @@ class Pomodoro extends React.Component {
                     <LeftToday/>
                 </Col>
                 <Col xs={"12"} lg={"4"} className={"my-2"}>
-                    <TodayView/>
+                    <TodayView date={getToday()}/>
                 </Col>
                 <Col xs={"12"} lg={"8"} className={"mb-1 mb-md-0 mt-4"}>
                     <PomodoroHistory/>

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {OptionTitle, Dropdown, Option, DropdownOption} from "./styles"
+import {OptionTitle, Dropdown, Option} from "./styles"
+import DropdownSelect from "../containers/DropdownSelect"
 
 const Filter = ({children, items}) => {
     return(
@@ -11,7 +12,7 @@ const Filter = ({children, items}) => {
             <Dropdown right>
                 {
                     items ?
-                        items.map( item => <DropdownOption key={item.name} color={item.color}>{item.name}</DropdownOption>)
+                        items.map( item => <DropdownSelect key={item.name} type={children} color={item.color}>{item.name}</DropdownSelect>)
                         : ''
                 }
             </Dropdown>

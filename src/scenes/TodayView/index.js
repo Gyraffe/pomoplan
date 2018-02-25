@@ -1,12 +1,10 @@
 import TodayView from './components/TodayView'
 import {connect} from "react-redux"
-import {selectTodos} from "../../reducers/todos"
-import {getDayNotCompleted} from "../../reducers/calendar"
-import {getToday} from "../../utils/date"
+import {getFilteredTodos} from "../../selectors/todos"
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        todos: selectTodos(state, getDayNotCompleted(state, getToday())),
+        todos: getFilteredTodos(state, ownProps),
     }
 }
 

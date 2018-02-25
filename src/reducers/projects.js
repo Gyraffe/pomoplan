@@ -16,12 +16,3 @@ export default (state = initialState, action) => {
             return state
     }
 }
-
-export const getProject = (componentProps, state) => {
-    return componentProps.project ? state.projects[componentProps.project] : undefined
-}
-
-export const getAllProjects = (state) => {
-    return Object.keys(state.projects).map(project => ({
-        name: state.projects[project].projectName, color: state.projects[project].color}))
-}

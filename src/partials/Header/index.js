@@ -1,8 +1,8 @@
 import Header from './components/Header'
 import {connect} from "react-redux"
 import {actions} from "../../reducers/ui"
-import {getAllTags} from "../../reducers/tags"
-import {getAllProjects} from "../../reducers/projects"
+import {getAllTags} from "../../selectors/tags"
+import {getAllProjects} from "../../selectors/projects"
 
 const mapStateToProps = (state, ownProps) => {
     return {

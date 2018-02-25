@@ -1,1 +1,0 @@
-export const filterUndefined = (callback) => callback.filter( (value) => value !== undefined)

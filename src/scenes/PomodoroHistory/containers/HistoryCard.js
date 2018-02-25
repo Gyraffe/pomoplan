@@ -1,13 +1,22 @@
 import {connect} from "react-redux"
 import PomoCard from "../components/PomoCard"
-import {getTags} from "../../../reducers/tags"
-import {getProject} from "../../../reducers/projects"
+import {getComponentTags} from "../../../selectors/tags"
+import {getProject} from "../../../selectors/projects"
 
-const mapStateToProps = (state, ownProps) => {
+const makeMapStateToProps = () => {
+    return (state, props) => {
+        return {
+            tags: getComponentTags(state, props),
+            project: getProject(state, props)
+        }
+    }
+}
+
+/*const mapStateToProps = (state, ownProps) => {
     return {
         tags: getTags(ownProps, state.tags),
         project: getProject(ownProps, state)
     }
-}
+}*/
 
-export default connect(mapStateToProps)(PomoCard)
+export default connect(makeMapStateToProps)(PomoCard)

@@ -17,11 +17,3 @@ export default (state = initialState, action) => {
             return state
     }
 }
-
-export const getTags = (componentProps, stateTags) => {
-    return componentProps.tags ? componentProps.tags.map(tagId => stateTags[tagId]) : undefined
-}
-
-export const getAllTags = (state) => {
-    return Object.keys(state.tags).map(tag => ({name: state.tags[tag].tagName, color: state.tags[tag].color}))
-}

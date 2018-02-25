@@ -1,5 +1,4 @@
-import uniqid from 'uniqid'
-import {selectTodo} from "./todos"
+import {selectTodo} from "../selectors/todos"
 import {getHourAndMinutes, getToday} from "../utils/date"
 
 export const types = {
@@ -43,14 +42,3 @@ export const actions = {
         dispatch(actions.addPomoObject(pomoObject))
     }
 }
-
-export const getDonePomos = (state, date) => state.pomoHistory[date] ? state.pomoHistory[date].length : 0
-
-export const getPomoHistory = (state, date) => (state.pomoHistory[date].map(pomo => ({
-    ...pomo,
-    title: state.todos[pomo.id].title,
-    tags: state.todos[pomo.id].tags,
-    project: state.todos[pomo.id].project,
-    pomoDuration: state.todos[pomo.id].pomoDuration,
-    pomoId: uniqid()
-})).reverse())
