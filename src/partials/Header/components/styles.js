@@ -1,6 +1,6 @@
 import Card from '../../../styles/Card'
 import styled from "styled-components"
-import {modularScale} from "polished"
+import {ellipsis, modularScale} from "polished"
 import PropTypes from 'prop-types'
 import {DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from "reactstrap"
 
@@ -9,6 +9,7 @@ const Content = Card.extend`
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
+    cursor: pointer;
 `
 
 const Title = styled.div`
@@ -26,7 +27,6 @@ const ExpandButton = styled.div`
     background-color: ${props => (props.expanded && props.theme.grey) || 'inherit'};
     flex-shrink: 1;
     height: 100%;
-    cursor: pointer;
     padding: ${props => props.theme.padding.m} 0;
 `
 
@@ -82,6 +82,7 @@ const Dropdown = styled(DropdownMenu)`
 
 const DropdownOption = styled(DropdownItem)`
     background-color: ${props => props.color};
+    ${ellipsis()};
     color: ${ props => props.theme.whitePerl};
 `
 

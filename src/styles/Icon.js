@@ -20,7 +20,8 @@ const Icon = styled(HelpingIcon).attrs({
 Icon.propTypes = {
     icon: PropTypes.string.isRequired,
     primary: PropTypes.bool,
-    accent: PropTypes.bool
+    accent: PropTypes.bool,
+    dark: PropTypes.bool,
 }
 
 export default Icon

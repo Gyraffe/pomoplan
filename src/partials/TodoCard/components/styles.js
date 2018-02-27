@@ -51,4 +51,16 @@ const FixedCard = styled(Card)`
     transition-property: background-color, box-shadow;
 `
 
-export {Tags, Content, TagsAndText, Description, Title, FixedCard}
+const RightPanel = styled.div`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+`
+
+const ExpandButton = styled.div`
+    cursor: pointer;
+`
+
+export {Tags, Content, TagsAndText, Description, Title, FixedCard, RightPanel, ExpandButton}

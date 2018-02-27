@@ -7,6 +7,10 @@ export const initialState = {
     studies: {
         projectName: 'studies',
         color: '#6FCF97'
+    },
+    extra: {
+        projectName: 'extra lessons',
+        color: '#EB5757'
     }
 }
 

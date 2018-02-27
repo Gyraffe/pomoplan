@@ -7,7 +7,7 @@ import Filter from "./Filter"
 const Header = ({isExpanded, handleToggle, title, tags, projects}) => {
     return (
         <Content>
-            <Title>{title}</Title>
+            <Title onClick={handleToggle}>{title}</Title>
             <ExpandButton onClick={handleToggle} expanded={isExpanded}>
                 <Icon dark={!isExpanded} icon={"expand_more"}/>
             </ExpandButton>

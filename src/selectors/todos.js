@@ -13,7 +13,7 @@ export const getFilteredTodos = createSelector(
     getFilterValues,
     (todos, calendarIds, filterType, filterValues) => {
         let todosReturn = []
-        if(filterType) {
+        if(filterType && calendarIds) {
             if(filterType.includes('project'))
                 todosReturn = todosReturn.concat(calendarIds.filter(id => todos[id].project ? filterValues.includes(todos[id].project) : false
                 ).map(id => ({id: id, ...todos[id]})))
@@ -23,7 +23,7 @@ export const getFilteredTodos = createSelector(
                 ).map(id => ({id: id, ...todos[id]})))
         }
         else
-            todosReturn = calendarIds.map(id => ({id: id, ...todos[id]}))
+            todosReturn = calendarIds ? calendarIds.map(id => ({id: id, ...todos[id]})) : undefined
         return todosReturn
     }
 )

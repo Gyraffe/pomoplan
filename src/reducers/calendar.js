@@ -5,7 +5,7 @@ export const types = {
 }
 
 const initialState = {
-    "2018-02-25": [
+    "2018-02-27": [
         {id: 'jduoghru', isCompleted: false},
         {id: 'jduoghrt', isCompleted: true},
         {id: 'jduoghrs', isCompleted: false},

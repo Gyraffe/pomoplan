@@ -1,5 +1,3 @@
-import {getMarkedTodos} from "../selectors/todoCards"
-
 const types = {
     TOGGLE_NAVIGATION: 'TOGGLE_NAVIGATION',
     TOGGLE_TODO_TODAY_HEADER: 'TOGGLE_TODO_TODAY_HEADER',

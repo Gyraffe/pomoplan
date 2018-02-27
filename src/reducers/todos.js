@@ -8,12 +8,12 @@ export const types = {
 
 const initialState = {
     jduoghru: {
-        title: 'I did my first todo!',
-        description: "This is quite interesting thing!",
-        pomoDone: 4,
-        pomoDuration: 6,
+        title: 'Zrobić pracę domową',
+        description: "Zadanie 1, 2 i 3 ze strony 67",
+        pomoDone: 0,
+        pomoDuration: 3,
         project: 'studies',
-        tags: ['work', 'school'],
+        tags: ['focus', 'matematykaDyskretna'],
         date: undefined
     },
     jduoghrt: {
@@ -26,12 +26,12 @@ const initialState = {
         date: undefined
     },
     jduoghrs: {
-        title: 'I did my first todo!',
-        description: "This is quite interesting thing!",
-        pomoDone: 4,
-        pomoDuration: 6,
-        project: 'school',
-        tags: ['work'],
+        title: 'Napisać email na angielski',
+        description: "Temat: co robiłam w wakacje i jakie są moje ulubione formy rozrywki.",
+        pomoDone: 1,
+        pomoDuration: 5,
+        project: 'extra',
+        tags: ['work', 'focus'],
         date: undefined
     },
     jduogars: {

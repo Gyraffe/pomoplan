@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PomoProgressCircle from "../../PomoProgressCircle/index"
-import {Content, TagsAndText, Description, Title} from "./styles"
+import {Content, TagsAndText, Description, Title, RightPanel, ExpandButton} from "./styles"
 import TodoCardTags from "./Tags"
+import Icon from "../../../styles/Icon"
 
 const TodoCardContent = ({tagsExpanded, tags, title, description, pomoDone, pomoDuration, isMarked}) => {
     return (
@@ -16,9 +17,12 @@ const TodoCardContent = ({tagsExpanded, tags, title, description, pomoDone, pomo
                     {description}
                 </Description>
             </TagsAndText>
-            <div className={"p-1"}>
+            <RightPanel className={"p-1"}>
                 <PomoProgressCircle done={pomoDone + (isMarked && 1) || pomoDone} outOf={pomoDuration} radius={18} border={3}/>
-            </div>
+                <ExpandButton>
+                    <Icon icon={"more_horiz"} dark/>
+                </ExpandButton>
+            </RightPanel>
         </Content>
     )
 }

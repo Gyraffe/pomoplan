@@ -1,6 +1,6 @@
 import {DropdownOption} from "../components/styles"
 import {connect} from "react-redux"
-import {getFilteredTodayProject, getFilteredTodayTags} from "../../../selectors/ui"
+// import {getFilteredTodayProject, getFilteredTodayTags} from "../../../selectors/ui"
 
 const mapStateToProps = (state, ownProps) => {
     return {
