@@ -2,7 +2,8 @@ import React from 'react'
 import DailyStats from "../components/DailyStats"
 import {connect} from "react-redux"
 import {getAllPomodoroTime} from "../../../utils/pomodoroTime"
-import {getTodayLeftTags} from "../../../selectors/calendar"
+import {getLeftProjects, getTodayLeftTags} from "../../../selectors/calendar"
+import {getTodayLeftPomo} from "../../../selectors/todos"
 
 const LeftToday = props => {
     return (
@@ -11,11 +12,11 @@ const LeftToday = props => {
 }
 
 const mapStateToProps = state => {
-    const today = Object.keys(state.todos)
     return {
-        timeLeft: today ? getAllPomodoroTime(today.length) : '0',
-        countPomos: today ? today.length : 0,
-        tags: getTodayLeftTags(state)
+        time: getTodayLeftPomo(state) ? getAllPomodoroTime(getTodayLeftPomo(state)) : '0',
+        countPomos: getTodayLeftPomo(state) ? getTodayLeftPomo(state) : '0',
+        tags: getTodayLeftTags(state),
+        projects: getLeftProjects(state)
     }
 }
 

@@ -3,7 +3,8 @@ import DailyStats from "../components/DailyStats"
 import {connect} from "react-redux"
 import {getAllPomodoroTime} from "../../../utils/pomodoroTime"
 import {getToday} from "../../../utils/date"
-import {getDonePomos} from "../../../selectors/pomoHistory"
+import {getDonePomos, getDoneProjects} from "../../../selectors/pomoHistory"
+import {getDoneTags} from "../../../selectors/pomoHistory"
 
 const DoneToday = props => {
     return (
@@ -13,8 +14,10 @@ const DoneToday = props => {
 
 const mapStateToProps = state => {
     return {
-        timeLeft: getAllPomodoroTime(getDonePomos(state ,getToday())),
+        time: getAllPomodoroTime(getDonePomos(state ,getToday())),
         countPomos: getDonePomos(state ,getToday()),
+        tags: getDoneTags(state),
+        projects: getDoneProjects(state)
     }
 }
 

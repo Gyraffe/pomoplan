@@ -33,6 +33,16 @@ const Data = styled.div`
     display: flex;
     flex-wrap: wrap;
 `
+const ProjectName = styled.div`
+    color: ${props => props.color};
+    font-weight: ${props => props.theme.fontWeightBold};
+    padding: 0 ${props => props.theme.padding.m};
+    flex: 1 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+`
+
 export {
-    CardTitle, Position, Statistics, SubTitle, Data
+    CardTitle, Position, Statistics, SubTitle, Data, ProjectName
 }

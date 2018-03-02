@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from "../../../styles/Card"
 import PropTypes from 'prop-types'
-import {CardTitle, Data, Position, Statistics, SubTitle} from "./styles"
+import {CardTitle, Data, Position, ProjectName, Statistics, SubTitle} from "./styles"
 import Tag from "../../../partials/Tag"
 
 const DailyStats = props => {
@@ -11,15 +11,19 @@ const DailyStats = props => {
             <Statistics>
                 <Position>
                     <SubTitle>{"TIME:"}</SubTitle>
-                    <Data>{props.timeLeft}</Data>
+                    <Data>{props.time}</Data>
                 </Position>
                 <Position>
                     <SubTitle>{"COUNT:"}</SubTitle>
                     <Data>{props.countPomos}</Data>
                 </Position>
                 <Position>
-                    <SubTitle>{"BREAKS:"}</SubTitle>
-                    <Data>{"musze pomyslec"}</Data>
+                    <SubTitle>{"PROJECTS:"}</SubTitle>
+                    <Data>{ props.projects ? props.projects.map( project =>
+                        <ProjectName key={project.projectName} color={project.color}>
+                            <div>{project.projectName}</div>
+                            </ProjectName>
+                    ) : '0'}</Data>
                 </Position>
                 <Position>
                     <SubTitle>{"TAGS:"}</SubTitle>
@@ -36,9 +40,10 @@ const DailyStats = props => {
 
 DailyStats.propTypes = {
     status: PropTypes.oneOf(['done', 'left']).isRequired,
-    timeLeft: PropTypes.string,
+    time: PropTypes.string,
     countPomos: PropTypes.number,
-    tags: PropTypes.array
+    tags: PropTypes.array,
+    projects: PropTypes.array,
 }
 
 export default DailyStats

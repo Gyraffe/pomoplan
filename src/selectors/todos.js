@@ -1,8 +1,12 @@
 import {createSelector} from 'reselect'
-import {getDayNotCompleted} from "./calendar"
+import {getDayNotCompleted, getTodayIds} from "./calendar"
 
 export const selectTodo = (state, id) => state.todos[id]
-const getTodos = state => state.todos
+
+export function getTodos(state) {
+    return state.todos ? state.todos : undefined
+}
+
 const getFilterType = state => state.ui.todoTodayHeader.filter ? state.ui.todoTodayHeader.filter.type : undefined
 const getFilterValues = state => state.ui.todoTodayHeader.filter ? state.ui.todoTodayHeader.filter.values : undefined
 
@@ -25,5 +29,19 @@ export const getFilteredTodos = createSelector(
         else
             todosReturn = calendarIds ? calendarIds.map(id => ({id: id, ...todos[id]})) : undefined
         return todosReturn
+    }
+)
+
+export const getTodayLeftPomo = createSelector(
+    getTodayIds,
+    getTodos,
+    (todayTodos, todos) => {
+        const notCompletedTodos = todayTodos.filter(todo => !todo.isCompleted)
+        let pomoLeftCount = 0
+        notCompletedTodos.forEach(todoId => {
+            const todo = todos[todoId.id]
+            pomoLeftCount = pomoLeftCount + todo.pomoDuration - todo.pomoDone
+        })
+        return pomoLeftCount
     }
 )

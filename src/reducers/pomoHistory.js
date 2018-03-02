@@ -5,7 +5,16 @@ export const types = {
     ADD_POMO_TO_HISTORY: 'ADD_POMO_TO_HISTORY'
 }
 
-const initialState = {}
+const initialState = {
+    [getToday()]: [
+        {
+            id: 'jduoghru',
+            timeStarted: '07:11',
+            timeEnded: '07:15',
+            pomoDone: 1
+        }
+    ]
+}
 
 export default (state = initialState, action) => {
     switch (action.type) {

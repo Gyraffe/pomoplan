@@ -3,3 +3,5 @@ export const getProject = (state, props) => props.project ? state.projects[props
 export const getAllProjects = (state) => Object.keys(state.projects).map(project => ({
     name: state.projects[project].projectName, color: state.projects[project].color
 }))
+
+export const getProjects = state => state.projects ? state.projects : undefined

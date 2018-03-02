@@ -2,22 +2,22 @@ const initialState = {
     school: {
         tagName: 'school',
         color: '#F2994A',
-        todos: []
+        todos: ['jduogars']
     },
     work: {
         tagName: 'work',
         color: '#219653',
-        todos: []
+        todos: ['jduoghrs']
     },
     focus: {
         tagName: 'focus',
         color: '#F2C94C',
-        todos: []
+        todos: ['jduoghru', 'jduoghrs']
     },
     matematykaDyskretna: {
         tagName: 'matematyka dyskretna',
         color: '#56CCF2',
-        todos: []
+        todos: ['jduoghru']
     }
 }
 
