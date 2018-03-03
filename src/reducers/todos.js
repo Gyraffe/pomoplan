@@ -64,10 +64,10 @@ export const actions = {
     addPomoDone: (id) => ({type: types.ADD_POMO_DONE, id}),
     addPomoDoneAndUpdateCalendar: () => (dispatch, getState) => {
         let ids = getMarkedTodos(getState())
-        ids.forEach(id => dispatch(actions.addPomoDone(id)))
         let todosState = getState().todos
-        ids.forEach(id => todosState[id].pomoDone === todosState[id].pomoDuration ?
-            dispatch(calendar.updateCompletedTodo(id)) : '')
+        ids.forEach(id => (todosState[id].pomoDone + 1) === todosState[id].pomoDuration ?
+            dispatch(calendar.updateCompletedTodo(id)) : null)
+        ids.forEach(id => dispatch(actions.addPomoDone(id)))
         ids.forEach(id => dispatch(pomoHistory.createPomoObject(id)))
     }
 }

@@ -2,8 +2,7 @@ import React from 'react'
 import DailyStats from "../components/DailyStats"
 import {connect} from "react-redux"
 import {getAllPomodoroTime} from "../../../utils/pomodoroTime"
-import {getLeftProjects, getTodayLeftTags} from "../../../selectors/calendar"
-import {getTodayLeftPomo} from "../../../selectors/todos"
+import {getLeftProjects, getTodayLeftTags, getTodayLeftPomo} from "../../../selectors/calendar"
 
 const LeftToday = props => {
     return (
