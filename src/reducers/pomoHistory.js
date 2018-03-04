@@ -14,7 +14,7 @@ const initialState = {
             pomoDone: 1
         }
     ],
-    ['2018-03-01']: [
+    '2018-03-01': [
         {
             id: 'jduoghru',
             timeStarted: '07:11',

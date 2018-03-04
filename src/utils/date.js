@@ -17,6 +17,4 @@ export const getToday = () => new Date().toISOString().split("T")[0]
 
 export const getCurrentUnixTime = () => moment().valueOf()
 
-export const getHourAndMinutes = (date) => {
-    console.log(date)
-    return moment(date).format("HH:mm")}
+export const getHourAndMinutes = (date) => moment(date).format("HH:mm")

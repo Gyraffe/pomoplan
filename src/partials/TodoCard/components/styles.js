@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {ellipsis, modularScale, lighten, rgba} from "polished"
+import {ellipsis, modularScale, lighten} from "polished"
 import Card from "../../../styles/Card"
 
 const Tags = styled.div`

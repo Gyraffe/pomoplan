@@ -7,7 +7,6 @@ import Icon from "../../../styles/Icon"
 import {getDayAndMonthString} from "../../../utils/date"
 
 const TodoCardContent = ({tagsExpanded, date, tags, title, description, pomoDone, pomoDuration, isMarked}) => {
-    console.log(date)
     return (
         <Content>
             <TagsAndText>
