@@ -4,10 +4,10 @@ import CountingTimer from "../containers/CountingTimer"
 import MarkTodos from "../containers/MarkTodos"
 import DeletePomo from "../containers/DeletePomo"
 
-const Timer = ({timerIsOn, timerHasFinished, confirmationIsOn}) => {
+const Timer = ({timerIsOn, breakIsOn, timerHasFinished, confirmationIsOn}) => {
     if (confirmationIsOn)
         return <DeletePomo/>
-    else if(!timerHasFinished && timerIsOn)
+    else if(!timerHasFinished && (timerIsOn || breakIsOn))
         return <CountingTimer/>
     else if(timerHasFinished && timerIsOn)
         return <MarkTodos/>

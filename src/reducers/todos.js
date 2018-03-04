@@ -14,7 +14,7 @@ const initialState = {
         pomoDuration: 3,
         project: 'studies',
         tags: ['focus', 'matematykaDyskretna'],
-        date: undefined
+        date: "2018-03-04"
     },
     jduoghrt: {
         title: 'I did my first todo!',
@@ -23,7 +23,7 @@ const initialState = {
         pomoDuration: 6,
         project: undefined,
         tags: undefined,
-        date: undefined
+        date: "2018-03-04"
     },
     jduoghrs: {
         title: 'Napisać email na angielski',
@@ -32,7 +32,7 @@ const initialState = {
         pomoDuration: 5,
         project: 'extra',
         tags: ['work', 'focus'],
-        date: undefined
+        date: "2018-03-04"
     },
     jduogars: {
         title: 'I did my first todo!',
@@ -41,7 +41,7 @@ const initialState = {
         pomoDuration: 6,
         project: 'school',
         tags: ['school'],
-        date: undefined
+        date: "2018-03-04"
     }
 }
 
@@ -64,10 +64,14 @@ export const actions = {
     addPomoDone: (id) => ({type: types.ADD_POMO_DONE, id}),
     addPomoDoneAndUpdateCalendar: () => (dispatch, getState) => {
         let ids = getMarkedTodos(getState())
-        let todosState = getState().todos
-        ids.forEach(id => (todosState[id].pomoDone + 1) === todosState[id].pomoDuration ?
-            dispatch(calendar.updateCompletedTodo(id)) : null)
-        ids.forEach(id => dispatch(actions.addPomoDone(id)))
-        ids.forEach(id => dispatch(pomoHistory.createPomoObject(id)))
+        if(ids) {
+            let todosState = getState().todos
+            ids.forEach(id => (todosState[id].pomoDone + 1) === todosState[id].pomoDuration ?
+                dispatch(calendar.updateCompletedTodo(id)) : null)
+            ids.forEach(id => dispatch(actions.addPomoDone(id)))
+            ids.forEach(id => dispatch(pomoHistory.createPomoObject(id)))
+        } else {
+            dispatch(pomoHistory.createBlankPomoObject())
+        }
     }
 }

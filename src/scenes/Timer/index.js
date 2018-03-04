@@ -6,7 +6,8 @@ const mapStateToProps = (state) => {
     return {
         timerHasFinished: state.timer.hasFinished,
         timerIsOn: state.timer.isOn,
-        confirmationIsOn: state.ui.confirmDeletingPomo
+        confirmationIsOn: state.ui.confirmDeletingPomo,
+        breakIsOn: state.timer.breakIsOn
     }
 }
 

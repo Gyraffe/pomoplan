@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {ellipsis, modularScale, lighten} from "polished"
+import {ellipsis, modularScale, lighten, rgba} from "polished"
 import Card from "../../../styles/Card"
 
 const Tags = styled.div`
@@ -63,4 +63,18 @@ const ExpandButton = styled.div`
     cursor: pointer;
 `
 
-export {Tags, Content, TagsAndText, Description, Title, FixedCard, RightPanel, ExpandButton}
+const DateWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const Date= styled.div`
+    text-align: center;
+    font-size: 0.7em;
+    color: ${props => props.theme.grey};
+    font-weight: ${props => props.theme.fontWeightBold};
+`
+
+export {Tags, Content, TagsAndText, Description, Title, FixedCard, RightPanel, ExpandButton, Date, DateWrap}

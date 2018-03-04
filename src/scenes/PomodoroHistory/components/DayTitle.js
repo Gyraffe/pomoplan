@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {DateDisplay, DayHeader, DayName, PomoCount, TimeCount} from "./styles"
-import {checkIfToday, getDayAndMonthString, getDayString} from "../../../utils/date"
+import {getDayAndMonthString, getCalendarDay} from "../../../utils/date"
 
 const DayTitle = ({day, pomos, time}) => {
     return (
         <DayHeader>
-            <DayName>{(checkIfToday(day) && 'today') || getDayString(day)}
+            <DayName>{getCalendarDay(day)}
                 <DateDisplay>{"(" + getDayAndMonthString(day) + ")"}</DateDisplay>
             </DayName>
             <PomoCount>{pomos}</PomoCount>

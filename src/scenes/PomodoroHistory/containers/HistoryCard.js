@@ -11,12 +11,4 @@ const makeMapStateToProps = () => {
         }
     }
 }
-
-/*const mapStateToProps = (state, ownProps) => {
-    return {
-        tags: getTags(ownProps, state.tags),
-        project: getProject(ownProps, state)
-    }
-}*/
-
 export default connect(makeMapStateToProps)(PomoCard)

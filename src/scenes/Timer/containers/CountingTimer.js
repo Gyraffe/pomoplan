@@ -7,7 +7,8 @@ import {actions as ui} from "../../../reducers/ui"
 const mapStateToProps = (state) => {
     return {
         minutes: state.timer.minutes,
-        seconds: state.timer.seconds
+        seconds: state.timer.seconds,
+        breakIsOn: state.timer.breakIsOn
     }
 }
 

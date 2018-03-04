@@ -17,7 +17,7 @@ const TodayView = ({todos}) => {
 }
 
 TodayView.propTypes = {
-    todos: PropTypes.array
+    todos: PropTypes.array,
 }
 
 export default TodayView

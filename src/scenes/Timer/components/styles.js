@@ -54,7 +54,8 @@ width: ${props => (((1 - props.done / props.outOf) * 100))}%;
 
 Progress.propTypes = {
     done: PropTypes.number.isRequired,
-    outOf: PropTypes.number.isRequired
+    outOf: PropTypes.number.isRequired,
+    breakIsOn: PropTypes.bool.isRequired,
 }
 
 export const ProgressLabel = styled.div`

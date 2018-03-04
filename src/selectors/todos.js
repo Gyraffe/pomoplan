@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect'
-import {getDayNotCompletedIds, getTodayIds} from "./calendar"
+import {getDayNotCompletedIds} from "./calendar"
 
 export const selectTodo = (state, id) => state.todos[id]
 

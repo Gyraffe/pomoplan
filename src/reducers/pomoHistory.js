@@ -13,6 +13,14 @@ const initialState = {
             timeEnded: '07:15',
             pomoDone: 1
         }
+    ],
+    ['2018-03-01']: [
+        {
+            id: 'jduoghru',
+            timeStarted: '07:11',
+            timeEnded: '07:15',
+            pomoDone: 1
+        }
     ]
 }
 
@@ -49,5 +57,12 @@ export const actions = {
             pomoDone: todo.pomoDone
         }
         dispatch(actions.addPomoObject(pomoObject))
+    },
+    createBlankPomoObject: () => (dispatch, getState) => {
+        dispatch(actions.addPomoObject({
+            timeStarted: getHourAndMinutes(getState().timer.startedOn),
+            timeEnded: getHourAndMinutes(),
+            pomoDone: undefined
+        }))
     }
 }

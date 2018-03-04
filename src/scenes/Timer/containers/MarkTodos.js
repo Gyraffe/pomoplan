@@ -11,6 +11,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(todos.addPomoDoneAndUpdateCalendar())
             dispatch(timer.timerDidDelete())
             dispatch(actions.unmarkAllTodos())
+            dispatch(timer.startBreak())
         },
         handleClear: () => dispatch(actions.unmarkAllTodos()),
         handleConfirm: () => dispatch(ui.toggleDeletingPomo()),
