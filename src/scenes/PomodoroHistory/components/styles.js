@@ -140,6 +140,7 @@ const PomosContainer = styled.div`
 display: flex;
 align-items: center;
 overflow-x: auto;
+overflow-y: hidden;
 margin-bottom: ${props => props.theme.margin.m};
 `
 

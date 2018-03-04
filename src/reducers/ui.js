@@ -11,7 +11,7 @@ const initialState = {
     navigationIsOpened: false,
     todoTodayHeader: {
         filter: [],
-        isExpanded: true,
+        isExpanded: false,
     },
     pomoTodayHeader: {
         filter: [],

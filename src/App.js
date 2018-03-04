@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 import * as R from "./constants/routes"
-import HomeNoUser from "./scenes/Login/index"
+import Login from "./scenes/Login/index"
 import HomeUser from "./scenes/Home/index"
 import {Container} from "reactstrap"
 import {UserIsNotAuthenticated, UserIsAuthenticated} from "./firebase/authCheck"
@@ -27,7 +27,7 @@ class App extends Component {
                         <Route path={path} key={path} component={UserIsAuthenticated(Navigation)}/>
                     )}
                 <MainContainer>
-                    <Route path={R.LOGIN} component={UserIsNotAuthenticated(HomeNoUser)}/>
+                    <Route path={R.LOGIN} component={UserIsNotAuthenticated(Login)}/>
                     <Route exact path={R.HOME} component={UserIsAuthenticated(HomeUser)}/>
                     <Route exact path={R.START_POMO} component={UserIsAuthenticated(Pomodoro)}/>
                 </MainContainer>

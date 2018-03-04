@@ -18,7 +18,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        expandTags: () => dispatch(actions.toggleExpandTags(ownProps.id)),
         toggleDone: () => dispatch(actions.toggleTaskDoneOnPomo(ownProps.id))
     }
 }

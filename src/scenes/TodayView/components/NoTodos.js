@@ -4,7 +4,7 @@ import {Info} from "./styles"
 const NoTodos = () => {
     return (
         <Info>
-            {"You have no more tasks for today!"}
+            {"You have no tasks left for today! 😄"}
         </Info>
     )
 }
