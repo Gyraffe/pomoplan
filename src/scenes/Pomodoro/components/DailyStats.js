@@ -23,7 +23,7 @@ const DailyStats = props => {
                         <ProjectName key={project.projectName} color={project.color}>
                             <div>{project.projectName}</div>
                             </ProjectName>
-                    ) : '0'}</Data>
+                    ) : 'No projects'}</Data>
                 </Position>
                 <Position>
                     <SubTitle>{"TAGS:"}</SubTitle>
@@ -31,7 +31,7 @@ const DailyStats = props => {
                         props.tags.map(tag => (
                             <Tag key={tag.tagName} {...tag}/>
                         ))
-                        : ''}</Data>
+                        : 'No tags'}</Data>
                 </Position>
             </Statistics>
         </Card>

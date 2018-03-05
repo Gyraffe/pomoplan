@@ -22,8 +22,8 @@ const mainTheme = {
     shortTagSize: '10px',
     cardTitleSize: '1.4em',
 
-    shadowButtonDur: '0.5s',
-    shadowCardDur: '0.5s',
+    shadowButtonDur: '0.4s',
+    shadowCardDur: '0.4s',
 
     cardBorderRadius: '5px',
     pillBorderRadius: '10px',

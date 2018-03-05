@@ -10,7 +10,7 @@ export const MenuOption = (props) => {
     return (
         <Col xs={"12"} xl={expand ? "4" : "12"}>
             <Link to={props.path}>
-                <MenuOptionCard important={important} shadow={2} className={"mb-3"}>
+                <MenuOptionCard important={important} shadow={2} className={"mb-4"}>
                     {props.children}
                 </MenuOptionCard>
             </Link>

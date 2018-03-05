@@ -8,8 +8,7 @@ export const getDayNotCompletedIds = (state, ownProps) => state.calendar[ownProp
     state.calendar[ownProps.date].filter(element => !element.isCompleted).map(element => element.id)
     : undefined
 
-export const getTodayIds = (state) => state.calendar[getToday()] ? state.calendar[getToday()]
-    : undefined
+export const getTodayIds = (state) => state.calendar[getToday()] ? state.calendar[getToday()] : undefined
 
 export const getTodayNotCompletedIds = (state) => state.calendar[getToday()] ?
     state.calendar[getToday()]
@@ -21,24 +20,33 @@ export const getTodayLeftTags = createSelector(
     getTodayNotCompletedIds,
     getTodos,
     getTags,
-    (notCompletedIds, todos, tags) => [...new Set(notCompletedIds ?
-        [].concat.apply([], notCompletedIds.map(id => todos[id].tags)
-            .filter(tag => tag !== undefined))
-            .map(id => tags[id])
-        : undefined
-    )]
+    (notCompletedIds, todos, tags) => {
+        const leftTags = notCompletedIds ?
+            [].concat
+                .apply([], notCompletedIds.map(id => todos[id].tags).filter(tag => tag !== undefined))
+                .map(id => tags[id])
+            : undefined
+        return leftTags !== undefined ?
+            [...new Set(leftTags)]
+            : undefined
+    }
 )
 
 export const getLeftProjects = createSelector(
     getTodayNotCompletedIds,
     getTodos,
     getProjects,
-    (notCompletedIds, todos, stateProjects) => [...new Set(notCompletedIds ?
-        notCompletedIds
-            .map(id => todos[id].project)
-            .filter(project => project !== undefined)
-            .map(project => stateProjects[project])
-        : undefined)]
+    (notCompletedIds, todos, stateProjects) => {
+        const projects = notCompletedIds ?
+            notCompletedIds
+                .map(id => todos[id].project)
+                .filter(project => project !== undefined)
+                .map(project => stateProjects[project])
+            : undefined
+        return projects !== undefined ?
+            [...new Set(projects)]
+            : undefined
+    }
 )
 
 export const getTodayLeftPomo = createSelector(
@@ -47,10 +55,11 @@ export const getTodayLeftPomo = createSelector(
     (notCompletedIds, todos) => {
         let pomoLeftCount = 0
         if(notCompletedIds)
-            notCompletedIds.forEach(id => {
-                const todo = todos[id]
-                pomoLeftCount = pomoLeftCount + todo.pomoDuration - todo.pomoDone
-            })
+            notCompletedIds
+                .forEach(id => {
+                    const todo = todos[id]
+                    pomoLeftCount = pomoLeftCount + todo.pomoDuration - todo.pomoDone
+                })
         return pomoLeftCount
     }
 )

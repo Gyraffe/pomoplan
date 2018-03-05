@@ -33,12 +33,18 @@ export const getDoneTags = createSelector(
     getTodos,
     getTags,
     (pomoDone, todos, stateTags) => {
-        const ids = pomoDone ? pomoDone.map(
-            pomo => todos[pomo.id] ? todos[pomo.id] : undefined
-        ).filter(tag => tag !== undefined) : undefined
-        const tags = ids ? [].concat.apply([], ids.map(todo => todo.tags).filter(tag => tag !== undefined)).map(
-            id => stateTags[id]) : undefined
-        return [...new Set(tags)]
+        const ids = pomoDone ?
+            pomoDone
+                .map(pomo => todos[pomo.id] ? todos[pomo.id] : undefined)
+                .filter(tag => tag !== undefined)
+            : undefined
+        const tags = ids ?
+            [].concat.apply([], ids.map(todo => todo.tags).filter(tag => tag !== undefined))
+                .map(id => stateTags[id])
+            : undefined
+        return tags !== undefined ?
+            [...new Set(tags)]
+            : undefined
     }
 )
 
@@ -47,11 +53,17 @@ export const getDoneProjects = createSelector(
     getTodos,
     getProjects,
     (pomoDone, todos, stateProjects) => {
-        const ids = pomoDone ? pomoDone.map(
-            pomo => todos[pomo.id] ? todos[pomo.id] : undefined
-        ).filter(tag => tag !== undefined) : undefined
-        const projects = ids ? [].concat.apply([], ids.map(todo => todo.project).filter(project => project !== undefined)).map(
-            project => stateProjects[project]) : undefined
-        return [...new Set(projects)]
+        const ids = pomoDone ?
+            pomoDone
+                .map(pomo => todos[pomo.id] ? todos[pomo.id] : undefined)
+                .filter(tag => tag !== undefined)
+            : undefined
+        const projects = ids ?
+            [].concat.apply([], ids.map(todo => todo.project).filter(project => project !== undefined))
+                .map(project => stateProjects[project])
+            : undefined
+        return projects !== undefined ?
+            [...new Set(projects)]
+            : undefined
     }
 )

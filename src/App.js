@@ -10,6 +10,7 @@ import Pomodoro from "./scenes/Pomodoro/index"
 import styled from "styled-components"
 import calculatePendingActions from "./pendingActions"
 import store from "./store/store"
+import Plan from "./scenes/Plan"
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
                     <Route path={R.LOGIN} component={UserIsNotAuthenticated(Login)}/>
                     <Route exact path={R.HOME} component={UserIsAuthenticated(HomeUser)}/>
                     <Route exact path={R.START_POMO} component={UserIsAuthenticated(Pomodoro)}/>
+                    <Route exact path={R.PLAN_WEEK} component={UserIsAuthenticated(Plan)}/>
                 </MainContainer>
                 </div>
             </BrowserRouter>

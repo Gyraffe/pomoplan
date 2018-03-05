@@ -13,7 +13,7 @@ const LeftToday = props => {
 const mapStateToProps = state => {
     return {
         time: getTodayLeftPomo(state) ? getAllPomodoroTime(getTodayLeftPomo(state)) : '0',
-        countPomos: getTodayLeftPomo(state) ? getTodayLeftPomo(state) : '0',
+        countPomos: getTodayLeftPomo(state) ? getTodayLeftPomo(state) : 0,
         tags: getTodayLeftTags(state),
         projects: getLeftProjects(state)
     }

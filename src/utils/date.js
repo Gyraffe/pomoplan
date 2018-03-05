@@ -13,7 +13,7 @@ export const getCalendarDay = (userDate) => moment(userDate ? userDate : moment(
 
 export const getDayAndMonthString = (date) => moment(date).format("DD.MM")
 
-export const getToday = () => new Date().toISOString().split("T")[0]
+export const getToday = () => moment().toISOString().split("T")[0]
 
 export const getCurrentUnixTime = () => moment().valueOf()
 

@@ -9,6 +9,7 @@ import todoCards from '../reducers/todoCards'
 import tags from '../reducers/tags'
 import projects from '../reducers/projects'
 import calendar from '../reducers/calendar'
+import calendarPlan from "../reducers/calendarPlan"
 
 const pomoPlan = combineReducers({
     ui,
@@ -19,6 +20,7 @@ const pomoPlan = combineReducers({
     tags,
     projects,
     calendar,
+    calendarPlan,
     firebase: firebaseReducer,
     form: formReducer,
 })
