@@ -3,6 +3,7 @@ import Card from "../../../styles/Card"
 import PropTypes from 'prop-types'
 import {CardTitle, Data, Position, ProjectName, Statistics, SubTitle} from "./styles"
 import Tag from "../../../partials/Tag"
+import uniqid from "uniqid"
 
 const DailyStats = props => {
     return (
@@ -20,7 +21,7 @@ const DailyStats = props => {
                 <Position>
                     <SubTitle>{"PROJECTS:"}</SubTitle>
                     <Data>{ props.projects ? props.projects.map( project =>
-                        <ProjectName key={project.projectName} color={project.color}>
+                        <ProjectName key={uniqid()} color={project.color}>
                             <div>{project.projectName}</div>
                             </ProjectName>
                     ) : 'No projects'}</Data>
@@ -29,7 +30,7 @@ const DailyStats = props => {
                     <SubTitle>{"TAGS:"}</SubTitle>
                     <Data>{props.tags ?
                         props.tags.map(tag => (
-                            <Tag key={tag.tagName} {...tag}/>
+                            <Tag key={uniqid()} {...tag}/>
                         ))
                         : 'No tags'}</Data>
                 </Position>

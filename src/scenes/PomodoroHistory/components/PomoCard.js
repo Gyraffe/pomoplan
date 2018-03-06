@@ -6,6 +6,7 @@ import {
 import Tag from "../../../partials/Tag"
 import PomoProgressLine from "./PomoProgressLine"
 import PropTypes from 'prop-types'
+import uniqid from "uniqid"
 
 const PomoCard = ({project, title, tags, timeStarted, timeEnded, pomoDone, pomoDuration}) => {
     return (
@@ -20,7 +21,7 @@ const PomoCard = ({project, title, tags, timeStarted, timeEnded, pomoDone, pomoD
                 <Tags>
                     {tags ?
                         tags.map(tag => (
-                            <Tag key={tag.tagName} {...tag}/>
+                            <Tag key={uniqid()} {...tag}/>
                         ))
                         : ''}
                 </Tags>

@@ -9,3 +9,8 @@ export const getMonthToDisplay = createSelector(
         stateMoment.format("MMMM")
         : stateMoment.format("MMMM YYYY")
 )
+
+export const getCurrentDateDisplayed = createSelector(
+    getCurrentMoment,
+    (stateMoment) => stateMoment
+)

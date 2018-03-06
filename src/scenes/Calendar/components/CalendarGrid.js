@@ -1,60 +1,14 @@
 import React from 'react'
-import {Break, Grid, GridSquare, GridWrapper, Row} from "./styles"
+import {Grid, GridWrapper} from "./styles"
 import WeekDays from "./WeekDays"
+import DisplayGrid from "../containers/DisplayGrid"
 
 const CalendarGrid = props => {
     return (
         <GridWrapper>
             <WeekDays/>
             <Grid>
-                <Break/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <Break/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <Break/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <Break/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <Break/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <Break/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
-                <GridSquare/>
+                <DisplayGrid/>
             </Grid>
         </GridWrapper>
     )

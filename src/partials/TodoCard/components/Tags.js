@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Tags} from "./styles"
 import React from "react"
 import Tag from "../../Tag"
+import uniqid from "uniqid"
 
 const TodoCardTags = props => {
     return (
@@ -10,8 +11,8 @@ const TodoCardTags = props => {
             {props.tags ?
                 props.tags.map(tag => (
                     props.expanded ?
-                        <Tag key={tag.tagName} {...tag}/> :
-                        <ShortTag key={tag.tagName} {...tag}/>
+                        <Tag key={uniqid()} {...tag}/> :
+                        <ShortTag key={uniqid()} {...tag}/>
                 ))
                 : ''}
         </Tags>

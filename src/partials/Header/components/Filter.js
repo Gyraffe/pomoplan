@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {OptionTitle, Dropdown, Option} from "./styles"
 import DropdownSelect from "../containers/DropdownSelect"
+import uniqid from "uniqid"
 
 const Filter = ({children, items}) => {
     return(
@@ -12,7 +13,7 @@ const Filter = ({children, items}) => {
             <Dropdown right>
                 {
                     items ?
-                        items.map( item => <DropdownSelect key={item.name} type={children} color={item.color}>{item.name}</DropdownSelect>)
+                        items.map( item => <DropdownSelect key={uniqid()} type={children} color={item.color}>{item.name}</DropdownSelect>)
                         : ''
                 }
             </Dropdown>

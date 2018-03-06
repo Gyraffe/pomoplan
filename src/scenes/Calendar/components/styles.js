@@ -5,7 +5,6 @@ export const Calendar = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    //min-height: 10vh;
     border-radius: ${props => props.theme.cardBorderRadius};
     background-color: ${props => props.theme.whitePerl};
     box-shadow: ${props => props.theme.shadow[5]};
@@ -68,9 +67,14 @@ export const Grid = styled.div`
     background-color: ${props => props.theme.whiteDirty};
 
 `
-export const Row = styled.div`
+export const DayHeader = styled.div`
     display: flex;
     width: 100%;
+`
+export const DayNumber = styled.div`
+    font-weight: ${props => props.theme.fontWeightBold};
+    padding: 0 ${props => props.theme.padding.s};
+    color: ${props => props.theme.orange};
 `
 
 export const GridSquare = styled.div`
@@ -86,6 +90,10 @@ export const GridSquare = styled.div`
     padding-bottom: 100%;
     display: block;
     }
+`
+
+export const BlankGridSquare = GridSquare.extend`
+    background-color: ${props => props.theme.grey};
 `
 
 export const Break = styled.div`

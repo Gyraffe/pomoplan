@@ -11,6 +11,7 @@ import styled from "styled-components"
 import calculatePendingActions from "./pendingActions"
 import store from "./store/store"
 import Plan from "./scenes/Plan"
+import uniqid from "uniqid"
 
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     {[R.STATS, R.START_POMO, R.PLAN_WEEK, R.ACCOUNT].map(path =>
-                        <Route path={path} key={path} component={UserIsAuthenticated(Navigation)}/>
+                        <Route path={path} key={uniqid()} component={UserIsAuthenticated(Navigation)}/>
                     )}
                 <MainContainer>
                     <Route path={R.LOGIN} component={UserIsNotAuthenticated(Login)}/>

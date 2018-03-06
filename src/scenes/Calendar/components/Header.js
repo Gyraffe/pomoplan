@@ -3,16 +3,16 @@ import PropTypes from "prop-types"
 import {HeaderWrapper, MonthName, Button} from './styles'
 import Icon from "../../../styles/Icon"
 
-const Header = ({month}) => {
+const Header = ({month, showNextMonth, showPrevMonth}) => {
     return (
         <HeaderWrapper>
-            <Button>
+            <Button onClick={showPrevMonth}>
                 <Icon icon={"arrow_back"}/>
             </Button>
             <MonthName>
                 {month}
             </MonthName>
-            <Button>
+            <Button onClick={showNextMonth}>
                 <Icon icon={"arrow_forward"}/>
             </Button>
         </HeaderWrapper>
@@ -21,7 +21,8 @@ const Header = ({month}) => {
 
 Header.propTypes = {
     month: PropTypes.string,
-    year: PropTypes.string,
+    showNextMonth: PropTypes.func,
+    showPrevMonth: PropTypes.func,
 }
 
 export default Header
