@@ -2,10 +2,15 @@ import {isSelected} from "../../../selectors/calendarPlan"
 import {connect} from "react-redux"
 import CalendarDay from "../components/CalendarDay"
 import {actions} from "../../../reducers/calendarPlan"
+import {makeGetFilteredAllTodos} from "../../../selectors/todos"
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        isSelected: isSelected(state, ownProps)
+const makeMapStateToProps = () => {
+    const getFilteredTodos = makeGetFilteredAllTodos()
+    return (state, ownProps) => {
+        return {
+            isSelected: isSelected(state, ownProps),
+            todos: getFilteredTodos(state, ownProps),
+        }
     }
 }
 
@@ -15,4 +20,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CalendarDay)
+export default connect(makeMapStateToProps, mapDispatchToProps)(CalendarDay)

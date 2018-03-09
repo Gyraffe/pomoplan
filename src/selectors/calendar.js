@@ -8,7 +8,9 @@ export const getDayNotCompletedIds = (state, ownProps) => state.calendar[ownProp
     state.calendar[ownProps.date].filter(element => !element.isCompleted).map(element => element.id)
     : undefined
 
-export const getTodayIds = (state) => state.calendar[getDate()] ? state.calendar[getDate()] : undefined
+export const getDayIds = (state, ownProps) => state.calendar[ownProps.date] ?
+    state.calendar[ownProps.date]
+    : undefined
 
 export const getTodayNotCompletedIds = (state) => state.calendar[getDate()] ?
     state.calendar[getDate()]

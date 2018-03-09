@@ -8,10 +8,18 @@ const initialState = {
     "2018-03-09": [
         {id: 'jduoghru', isCompleted: false},
         {id: 'jduoghrs', isCompleted: false},
-        {id: 'jduogars', isCompleted: false},
     ],
-    "2018-03-18": [{id: 'jduoghrt', isCompleted: false}],
-    "2018-03-05": []
+    "2018-03-02": [
+        {id: 'jduoghrt', isCompleted: false},
+        {id: 'jduogaas', isCompleted: true}
+    ],
+    "2018-03-05": [
+        {id: 'jduogads', isCompleted: true}
+    ],
+    "2018-03-01": [
+        {id: 'jdasgars', isCompleted: false},
+        {id: 'jduogaws', isCompleted: true}
+    ],
 }
 
 export default (state = initialState, action) => {

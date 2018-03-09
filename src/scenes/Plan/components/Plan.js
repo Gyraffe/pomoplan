@@ -14,7 +14,7 @@ const Plan = ({dateSelected}) => {
             <Col xs={"12"} lg={"8"} className={"mb-2"}>
                 <Calendar/>
             </Col>
-            <Col xs={"12"} lg={"4"} className={"d-none d-lg-flex"}>
+            <Col xs={"12"} lg={"4"}>
                 <DayView date={dateSelected}/>
             </Col>
         </Row>

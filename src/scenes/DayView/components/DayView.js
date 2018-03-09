@@ -14,7 +14,7 @@ const DayView = ({todos, date}) => {
             { (todos && todos.length !== 0) ?
                 todos.map( todo => (<TodoCard key={uniqid()} {...todo}/>))
                 :
-                <NoTodos/>}
+                <NoTodos date={getCalendarDay(date)}/>}
         </Wrap>
     )
 }

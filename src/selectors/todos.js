@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect'
-import {getDayNotCompletedIds} from "./calendar"
+import {getDayIds, getDayNotCompletedIds} from "./calendar"
 
 export const selectTodo = (state, id) => state.todos[id]
 
@@ -28,6 +28,29 @@ export const makeGetFilteredTodos = () =>  createSelector(
         }
         else
             todosReturn = notCompletedIds ? notCompletedIds.map(id => ({id: id, ...todos[id]})) : undefined
+        return todosReturn
+    }
+)
+
+export const makeGetFilteredAllTodos = () =>  createSelector(
+    getTodos,
+    getDayIds,
+    getFilterType,
+    getFilterValues,
+    (todos, ids, filterType, filterValues) => {
+        let todosReturn = []
+        if(filterType && ids) {
+            if(filterType.includes('project'))
+                todosReturn = todosReturn.concat(ids
+                    .filter(todo => todos[todo.id].project ? filterValues.includes(todos[todo.id].project) : false)
+                    .map(todo => ({id: todo.id, completed: todo.isCompleted, ...todos[todo.id]})))
+            if(filterType.includes('tags'))
+                todosReturn = todosReturn.concat(ids
+                    .filter(id => todos[id].tags ? todos[id].tags.includes(filterValues) : false)
+                    .map(todo => ({id: todo.id, completed: todo.isCompleted, ...todos[todo.id]})))
+        }
+        else
+            todosReturn = ids ? ids.map(todo => ({id: todo.id, completed: todo.isCompleted, ...todos[todo.id]})) : undefined
         return todosReturn
     }
 )

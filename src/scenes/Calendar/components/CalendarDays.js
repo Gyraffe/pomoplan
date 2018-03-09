@@ -4,6 +4,7 @@ import BlankCalendarDay from "./BlankCalendarDay"
 import uniqid from "uniqid"
 import moment from "moment"
 import Day from "../containers/Day"
+import {getDate} from "../../../utils/date"
 
 const CalendarDays = ({currentMoment}) => {
     return GetDaysGrid(currentMoment)
@@ -39,9 +40,10 @@ function PushCalendarDays(currentMoment, breakCount, daysToDisplay) {
             daysToDisplay.push(<Break key={uniqid()}/>)
         }
         daysToDisplay.push(<Day key={uniqid()}
-                                        dayNumber={day}
-                                        moment={getMoment(day, currentMoment)}
-                                        isToday={getMoment(day, currentMoment).isSame(moment(), 'day')}
+                                dayNumber={day}
+                                moment={getMoment(day, currentMoment)}
+                                isToday={getMoment(day, currentMoment).isSame(moment(), 'day')}
+                                date={getDate(getMoment(day, currentMoment))}
         />)
     }
     return breakCount

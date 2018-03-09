@@ -23,7 +23,7 @@ const initialState = {
         pomoDuration: 6,
         project: undefined,
         tags: undefined,
-        date: "2018-03-18"
+        date: "2018-03-02"
     },
     jduoghrs: {
         title: 'Napisać email na angielski',
@@ -34,14 +34,41 @@ const initialState = {
         tags: ['work', 'focus'],
         date: "2018-03-04"
     },
-    jduogars: {
+    jduogads: {
         title: 'I did my first todo!',
         description: "This is quite interesting thing!",
         pomoDone: 4,
         pomoDuration: 6,
         project: 'school',
         tags: ['school'],
-        date: "2018-03-04"
+        date: "2018-03-05"
+    },
+    jduogaas: {
+        title: 'I did my first todo!',
+        description: "This is quite interesting thing!",
+        pomoDone: 4,
+        pomoDuration: 6,
+        project: 'school',
+        tags: ['school'],
+        date: "2018-03-02"
+    },
+    jduogaws: {
+        title: 'I did my first todo!',
+        description: "This is quite interesting thing!",
+        pomoDone: 4,
+        pomoDuration: 6,
+        project: 'extra',
+        tags: ['school'],
+        date: "2018-03-01"
+    },
+    jdasgars: {
+        title: 'I did my first todo!',
+        description: "This is quite interesting thing!",
+        pomoDone: 4,
+        pomoDuration: 6,
+        project: 'school',
+        tags: ['school'],
+        date: "2018-03-01"
     }
 }
 
