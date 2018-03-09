@@ -1,5 +1,5 @@
 import uniqid from "uniqid"
-import {getToday} from "../utils/date"
+import {getDate} from "../utils/date"
 import {getTags} from "./tags"
 import {createSelector} from "reselect"
 import {getTodos} from "./todos"
@@ -26,7 +26,7 @@ export const getPomoHistory = (state, date) => state.pomoHistory[date]
         }))
     .reverse()
 
-export const getTodayPomos = state => state.pomoHistory[getToday()] ? state.pomoHistory[getToday()] : undefined
+export const getTodayPomos = state => state.pomoHistory[getDate()] ? state.pomoHistory[getDate()] : undefined
 
 export const getDoneTags = createSelector(
     getTodayPomos,

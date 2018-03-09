@@ -11,3 +11,6 @@ export const Info = styled.div`
         color: ${props => transparentize(0, props.theme.whitePerl)};
     }
 `
+export const Wrap = styled.div`
+    width: 100%;
+`

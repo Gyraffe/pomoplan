@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import {ellipsis, modularScale, lighten} from "polished"
 import Card from "../../../styles/Card"
 
@@ -70,11 +71,14 @@ const DateWrap = styled.div`
     align-items: center;
 `
 
-const Date= styled.div`
+const Date = styled.div`
     text-align: center;
     font-size: 0.7em;
-    color: ${props => props.theme.grey};
+    color: ${props => props.overdue ? props.theme.orange : props.theme.grey};
     font-weight: ${props => props.theme.fontWeightBold};
 `
+Date.proptypes = {
+    overdue: PropTypes.bool
+}
 
 export {Tags, Content, TagsAndText, Description, Title, FixedCard, RightPanel, ExpandButton, Date, DateWrap}

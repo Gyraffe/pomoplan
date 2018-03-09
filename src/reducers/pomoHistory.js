@@ -1,12 +1,12 @@
 import {selectTodo} from "../selectors/todos"
-import {getHourAndMinutes, getToday} from "../utils/date"
+import {getHourAndMinutes, getDate} from "../utils/date"
 
 export const types = {
     ADD_POMO_TO_HISTORY: 'ADD_POMO_TO_HISTORY'
 }
 
 const initialState = {
-    [getToday()]: [
+    [getDate()]: [
         {
             id: 'jduoghru',
             timeStarted: '07:11',
@@ -27,17 +27,17 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.ADD_POMO_TO_HISTORY:
-            return Object.keys(state).includes(getToday()) ?
+            return Object.keys(state).includes(getDate()) ?
                 {
                     ...state,
-                    [getToday()]: [
+                    [getDate()]: [
                         action.object,
-                        ...state[getToday()]
+                        ...state[getDate()]
                     ]
                 } :
                 {
                     ...state,
-                    [getToday()]: [
+                    [getDate()]: [
                         action.object,
                     ]
                 }

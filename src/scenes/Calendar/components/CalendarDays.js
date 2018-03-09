@@ -1,10 +1,9 @@
 import React from "react"
 import {Break} from "./styles"
-import CalendarDay from "./CalendarDay"
-// import moment from "moment"
 import BlankCalendarDay from "./BlankCalendarDay"
 import uniqid from "uniqid"
 import moment from "moment"
+import Day from "../containers/Day"
 
 const CalendarDays = ({currentMoment}) => {
     return GetDaysGrid(currentMoment)
@@ -39,7 +38,7 @@ function PushCalendarDays(currentMoment, breakCount, daysToDisplay) {
         if(breakCount % 7 === 0) {
             daysToDisplay.push(<Break key={uniqid()}/>)
         }
-        daysToDisplay.push(<CalendarDay key={uniqid()}
+        daysToDisplay.push(<Day key={uniqid()}
                                         dayNumber={day}
                                         moment={getMoment(day, currentMoment)}
                                         isToday={getMoment(day, currentMoment).isSame(moment(), 'day')}

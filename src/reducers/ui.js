@@ -9,7 +9,7 @@ const types = {
 
 const initialState = {
     navigationIsOpened: false,
-    todoTodayHeader: {
+    dayHeader: {
         filter: [],
         isExpanded: false,
     },
@@ -30,9 +30,9 @@ export default (state = initialState, action) => {
         case types.TOGGLE_TODO_TODAY_HEADER:
             return {
                 ...state,
-                todoTodayHeader: {
-                    ...state.todoTodayHeader,
-                    isExpanded: !state.todoTodayHeader.isExpanded
+                dayHeader: {
+                    ...state.dayHeader,
+                    isExpanded: !state.dayHeader.isExpanded
                 }
             }
         case types.TOGGLE_POMO_TODAY_HEADER:
@@ -60,10 +60,10 @@ export const actions = {
     toggleDeletingPomo: () => ({type: types.TOGGLE_DELETING_POMO}),
     addNewFilter: (header, filter) => ({type: types.ADD_NEW_FILTER, header, filter}),
     handleFilter: (header, type, value) => (dispatch, getState) => {
-        const stateFilter = getState().ui.todoTodayHeader.filter
-        if(header === 'today') {
+        const stateFilter = getState().ui.dayHeader.filter
+        if(header === 'day') {
             if(stateFilter.length !== 0) {
-                dispatch(actions.addNewFilter('today', {type: [...type], values: [...value]}))
+                dispatch(actions.addNewFilter('day', {type: [...type], values: [...value]}))
             } else {
                 if(!stateFilter.includes(type))
                     stateFilter.type.push(type)

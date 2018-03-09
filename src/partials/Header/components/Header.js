@@ -23,7 +23,7 @@ const Header = ({isExpanded, handleToggle, title, tags, projects}) => {
 Header.propTypes = {
     isExpanded: PropTypes.bool,
     handleToggle: PropTypes.func,
-    title: PropTypes.oneOf(['todo today', 'pomo today']).isRequired,
+    title: PropTypes.string.isRequired,
     filters: PropTypes.object,
     tags: PropTypes.array,
     projects: PropTypes.array,

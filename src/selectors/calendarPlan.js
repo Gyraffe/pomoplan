@@ -14,3 +14,8 @@ export const getCurrentDateDisplayed = createSelector(
     getCurrentMoment,
     (stateMoment) => stateMoment
 )
+
+export const getCurrentDateSelected = state => state.calendarPlan.currentDateSelected
+
+export const isSelected = (state, ownProps) => moment(ownProps.moment)
+    .isSame(moment(state.calendarPlan.currentDateSelected), 'day')

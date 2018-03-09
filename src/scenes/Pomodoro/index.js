@@ -2,10 +2,10 @@ import React from 'react'
 import {Col, Row} from "reactstrap"
 import DoneToday from "./containers/DoneToday"
 import LeftToday from "./containers/LeftToday"
-import TodayView from "../TodayView"
+import DayView from "../DayView"
 import PomodoroHistory from "../PomodoroHistory"
 import Timer from "../Timer"
-import {getToday} from "../../utils/date"
+import {getDate} from "../../utils/date"
 
 class Pomodoro extends React.Component {
     render() {
@@ -21,7 +21,7 @@ class Pomodoro extends React.Component {
                     <LeftToday/>
                 </Col>
                 <Col xs={"12"} lg={"4"} className={"my-2"}>
-                    <TodayView date={getToday()}/>
+                    <DayView date={getDate()}/>
                 </Col>
                 <Col xs={"12"} lg={"8"} className={"mb-1 mb-md-0 mt-4"}>
                     <PomodoroHistory/>

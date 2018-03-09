@@ -14,6 +14,7 @@ const Content = Card.extend`
 
 const Title = styled.div`
     flex-grow: 1;
+    text-transform: lowercase;
     color: ${props => props.theme.lightBlue};
     font-size: ${modularScale(1.4)};
     font-weight: ${props => props.theme.fontWeightBold};

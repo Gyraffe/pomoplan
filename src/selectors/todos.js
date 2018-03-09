@@ -7,10 +7,10 @@ export function getTodos(state) {
     return state.todos ? state.todos : undefined
 }
 
-const getFilterType = state => state.ui.todoTodayHeader.filter ? state.ui.todoTodayHeader.filter.type : undefined
-const getFilterValues = state => state.ui.todoTodayHeader.filter ? state.ui.todoTodayHeader.filter.values : undefined
+const getFilterType = state => state.ui.dayHeader.filter ? state.ui.dayHeader.filter.type : undefined
+const getFilterValues = state => state.ui.dayHeader.filter ? state.ui.dayHeader.filter.values : undefined
 
-export const getFilteredTodos = createSelector(
+export const makeGetFilteredTodos = () =>  createSelector(
     getTodos,
     getDayNotCompletedIds,
     getFilterType,
@@ -31,4 +31,3 @@ export const getFilteredTodos = createSelector(
         return todosReturn
     }
 )
-

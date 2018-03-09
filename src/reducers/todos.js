@@ -14,7 +14,7 @@ const initialState = {
         pomoDuration: 3,
         project: 'studies',
         tags: ['focus', 'matematykaDyskretna'],
-        date: "2018-03-04"
+        date: "2018-03-09"
     },
     jduoghrt: {
         title: 'I did my first todo!',
@@ -23,7 +23,7 @@ const initialState = {
         pomoDuration: 6,
         project: undefined,
         tags: undefined,
-        date: "2018-03-04"
+        date: "2018-03-18"
     },
     jduoghrs: {
         title: 'Napisać email na angielski',

@@ -9,12 +9,16 @@ export const getCalendarDay = (userDate) => moment(userDate ? userDate : moment(
     lastDay: '[Yesterday]',
     lastWeek: '[Last] dddd',
     sameElse: 'DD/MM/YYYY'
-});
+})
 
-export const getDayAndMonthString = (date) => moment(date).format("DD.MM")
+export const getDayAndMonthString = (date) => date ? moment(date).format("DD.MM") : undefined
 
-export const getToday = () => moment().toISOString().split("T")[0]
+export const getDate = (givenMoment) => givenMoment ?
+    moment(givenMoment).toISOString().split("T")[0]
+    : moment().toISOString().split("T")[0]
 
 export const getCurrentUnixTime = () => moment().valueOf()
 
 export const getHourAndMinutes = (date) => moment(date).format("HH:mm")
+
+export const isOverdue = (date) => date ? moment(date).isBefore(getDate(), 'day') : false

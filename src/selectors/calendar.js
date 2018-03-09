@@ -1,4 +1,4 @@
-import {getToday} from "../utils/date"
+import {getDate} from "../utils/date"
 import {getProjects} from "./projects"
 import {getTodos} from "./todos"
 import {createSelector} from "reselect"
@@ -8,10 +8,10 @@ export const getDayNotCompletedIds = (state, ownProps) => state.calendar[ownProp
     state.calendar[ownProps.date].filter(element => !element.isCompleted).map(element => element.id)
     : undefined
 
-export const getTodayIds = (state) => state.calendar[getToday()] ? state.calendar[getToday()] : undefined
+export const getTodayIds = (state) => state.calendar[getDate()] ? state.calendar[getDate()] : undefined
 
-export const getTodayNotCompletedIds = (state) => state.calendar[getToday()] ?
-    state.calendar[getToday()]
+export const getTodayNotCompletedIds = (state) => state.calendar[getDate()] ?
+    state.calendar[getDate()]
         .map(key => !key.isCompleted ? key.id : undefined)
         .filter(id => id !== undefined)
     : undefined

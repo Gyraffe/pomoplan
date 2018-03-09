@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 export const Calendar = styled.div`
     display: flex;
@@ -68,6 +69,7 @@ export const Grid = styled.div`
 
 `
 export const DayHeader = styled.div`
+    position: absolute;
     display: flex;
     width: 100%;
 `
@@ -81,7 +83,9 @@ export const GridSquare = styled.div`
     flex: 1;
     border-right: 1px ${props => props.theme.grey} solid;
     border-bottom: 1px ${props => props.theme.grey} solid;
-    background-color: ${props => props.theme.whiteDirty};
+    background-color: ${props => props.isSelected ? props.theme.whitePerl : props.theme.whiteDirty};
+    position: relative;
+    cursor: pointer;
     &:nth-child(8n){
     border-right: 0;
     }
@@ -91,6 +95,10 @@ export const GridSquare = styled.div`
     display: block;
     }
 `
+
+GridSquare.propsTypes = {
+    isSelected: PropTypes.bool
+}
 
 export const BlankGridSquare = GridSquare.extend`
     background-color: ${props => props.theme.grey};

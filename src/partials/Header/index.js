@@ -6,8 +6,8 @@ import {getAllProjects} from "../../selectors/projects"
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        isExpanded: (ownProps.title === 'todo today' && state.ui.todoTodayHeader.isExpanded) ||
-        (ownProps.title === 'pomo today' && state.ui.pomoTodayHeader.isExpanded),
+        isExpanded: ownProps.title === 'pomo today' ? state.ui.pomoTodayHeader.isExpanded :
+        state.ui.dayHeader.isExpanded,
         tags: getAllTags(state),
         projects: getAllProjects(state)
     }
@@ -15,8 +15,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        handleToggle: (ownProps.title === 'todo today' && (() => dispatch(actions.toggleTodoTodayHeader()))) ||
-        (ownProps.title === 'pomo today' && (() => dispatch(actions.togglePomoTodayHeader()))),
+        handleToggle: ownProps.title === 'pomo today' ? (() => dispatch(actions.togglePomoTodayHeader())) :
+        (() => dispatch(actions.toggleTodoTodayHeader())),
     }
 }
 

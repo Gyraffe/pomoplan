@@ -1,18 +1,17 @@
-import {getToday} from "../utils/date"
+import {getDate} from "../utils/date"
 
 export const types = {
     UPDATE_COMPLETED_TODO: 'UPDATE_COMPLETED_TODO'
 }
 
 const initialState = {
-    "2018-03-04": [
+    "2018-03-09": [
         {id: 'jduoghru', isCompleted: false},
-        {id: 'jduoghrt', isCompleted: true},
         {id: 'jduoghrs', isCompleted: false},
         {id: 'jduogars', isCompleted: false},
     ],
-    "2018-02-18": [],
-    "2018-02-17": []
+    "2018-03-18": [{id: 'jduoghrt', isCompleted: false}],
+    "2018-03-05": []
 }
 
 export default (state = initialState, action) => {
@@ -29,8 +28,8 @@ export const actions = {
 }
 
 const updateTodos = (state, callback) => {
-    const todoIndex = state[getToday()].findIndex(callback)
+    const todoIndex = state[getDate()].findIndex(callback)
     let newState = state
-    newState[getToday()][todoIndex].isCompleted = true
+    newState[getDate()][todoIndex].isCompleted = true
     return newState
 }

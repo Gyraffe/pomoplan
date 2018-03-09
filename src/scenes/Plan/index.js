@@ -1,24 +1,11 @@
-import React from 'react'
-import {Col, Row} from "reactstrap"
-import {AddingButton} from "./components/styles"
-import Calendar from "../Calendar"
+import Plan from "./components/Plan"
+import {connect} from "react-redux"
+import {getCurrentDateSelected} from "../../selectors/calendarPlan"
 
-class Plan extends React.Component {
-    render() {
-        return (
-            <Row className={"mt-3"}>
-                <Col xs={"12"} className={"mb-4"}>
-                    <AddingButton/>
-                </Col>
-                <Col xs={"12"} lg={"9"} className={"mb-2"}>
-                    <Calendar/>
-                </Col>
-                <Col xs={"12"} lg={"3"} className={"d-none d-lg-flex"}>
-                    hihihi
-                </Col>
-            </Row>
-        )
+const mapStateToProps = (state) => {
+    return {
+        dateSelected: getCurrentDateSelected(state)
     }
 }
 
-export default Plan
+export default connect(mapStateToProps)(Plan)
