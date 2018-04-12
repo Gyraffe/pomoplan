@@ -20,6 +20,16 @@
 ![alt text](https://raw.githubusercontent.com/juliapacula/pomoplan/master/previews/pomoplan6.png "PomoPlan")
 ![alt text](https://raw.githubusercontent.com/juliapacula/pomoplan/master/previews/pomoplan7.png "PomoPlan")
 ---
+## Install
+
+    $ git clone https://github.com/ORG/PROJECT.git
+    $ cd PROJECT
+    $ npm install
+    
+## Start & watch
+    
+    $ npm start
+---
 ## Libraries and frameworks used:
   + JavaScript ES6+
   + ReactJS
