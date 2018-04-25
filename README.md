@@ -22,8 +22,8 @@
 ---
 ## Install
 
-    $ git clone https://github.com/ORG/PROJECT.git
-    $ cd PROJECT
+    $ git clone https://github.com/juliapacula/pomoplan.git
+    $ cd pomoplan
     $ npm install
     
 ## Start & watch
